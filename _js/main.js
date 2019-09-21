@@ -4,9 +4,9 @@ $(function(){
     
     // LOADER HIDE
     window.setTimeout(function () {
-        //$('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
+        $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
         // fade out loader after 800ms, then hide
-    }, 200);
+    }, 500);
 
     
     // DISABLE RIGHT CLICK
@@ -23,9 +23,9 @@ $(function(){
     } else { $('body').removeClass('dark'); $(".darkmode").prop('checked', false); }
     // else vice versa
 
-    $(".darkmode").on("click", function(e){ // if click the toggle, change it in localstorage
+    $(".darkmode").on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
         localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
-        // then change on the page too, add a "dark" class to body
+        // then change it on the page too, add a "dark" class to body
         localStorage.getItem('mode') === 'dark' ? $('body').addClass('dark') : $('body').removeClass('dark')
     })
     
