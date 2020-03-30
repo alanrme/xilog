@@ -57,13 +57,13 @@ data-paroller-factor-xs="-0.1" data-paroller-transition="transform .2s linear">
     <nav>
         <a id="navlogo" href=""><img src="_img/logo-white.png" alt="Logo" style="width: 1.5em; height: auto"> Xilog</a>
         <!--<a href="funstuff.html">Fun Stuff</a>-->
-        <a href="privacy.html">Privacy Policy</a>
+        <!--<a href="privacy.html">Privacy Policy</a>-->
 
         <div class="menu" style="display: none"><i class="fas fa-bars"></i></div>
     </nav>
     <div class="hero" id="top">
-        <a href=""> <img src="_img/logo.png" alt="Logo" class="logo"></a>
-        <h1 id="xilogheader"> Xilog </h1>
+        <a href=""> <img src="_img/logo-broken.png" alt="Logo" class="logo"></a>
+        <h1 id="xilogheader"> 404 </h1>
         <div class="cross blink"></div>
     </div>
     <div class="content">
@@ -72,10 +72,9 @@ data-paroller-factor-xs="-0.1" data-paroller-transition="transform .2s linear">
             <hr class="divider">
             <div class="container">
                 <p>
-                    Oh my! You've tried to find a file that doesn't exist.
-                    Check your URL and try again.
+                    Time to recheck that URL.
                 </p>
-                <a class="button" href="http://xilog.xyz">Go Home</a>
+                <a class="button" href="https://xilog.xyz">Go Home</a>
                 <input type="button" value="Go Back" onclick="history.back()">
             </div>
         </div>
@@ -83,20 +82,34 @@ data-paroller-factor-xs="-0.1" data-paroller-transition="transform .2s linear">
     
     <div class="footer">
         <p3>
-            Copyright &copy; Alan Ray D'souza 2019
+            Copyright &copy; Alan Ray D'souza 2020
             <br>
             Background idea by <a href="http://htbrown.com">Hayden Brown</a>
+            <br>
+            Night Mode<br>
+            <label class="switch">
+                <input type="checkbox" class="darkmode">
+                <span class="slider round"></span>
+            </label>
+            <br>
+            <a href="privacy.html">Privacy Policy</a>
         </p3>
     </div>
     
     <!-- MODALS BELOW -->
-    <div class="scrollup"><a href="#top">
+    <a href="#top"></a><div class="scrollup">
         <i class="fa fa-chevron-up" style="font-size: 2em; color: white"></i>
-    </a></div>
+    </div></a>
     
-    <div id="loader-bg"><div id="loader"></div></div>
+    <div class="modal" id="loader-bg">
+        <svg id="loader" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+            <path
+             d="M249,256H375L511.776,431.0733l205.19-262.6315A398.1316,398.1316,0,0,0,512,112c-220.9139,0-400,179.0861-400,400A398.7279,398.7279,0,0,0,228.27,793.9446L448.7746,511.7114Z"/><path d="M795.73,230.0554,575.2255,512.2886,775,768H649L512.224,592.9268l-205.19,262.6314A398.1316,398.1316,0,0,0,512,912c220.9139,0,400-179.0861,400-400A398.7282,398.7282,0,0,0,795.73,230.0554Z"
+            />
+        </svg>
+    </div>
     
-    <div id="menu-bg" style="display: none">
+    <div class="modal" id="menu-bg" style="display: none">
         <div id="menu">
             <a class="m-close"><i class="fas fa-times"></i> Close</a>
         </div>
