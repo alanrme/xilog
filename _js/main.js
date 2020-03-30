@@ -6,7 +6,7 @@ $(function(){
     window.setTimeout(function () {
         $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
         // fade out loader after 800ms, then hide
-    }, 500);
+    }, 800);
 
     
     // DISABLE RIGHT CLICK
@@ -17,7 +17,7 @@ $(function(){
 
 
     // DARK MODE
-    if ((localStorage.getItem('mode') || 'dark') === 'dark') { // if localstorage says user last setting is dark
+    if ((localStorage.getItem('mode') || 'dark') === 'dark') { // if localstorage says user's last setting is dark
         $('body').addClass('dark'); // make the page dark
         $(".darkmode").prop('checked', true); // and check darkmode box
     } else { $('body').removeClass('dark'); $(".darkmode").prop('checked', false); }
@@ -58,11 +58,39 @@ $(function(){
         }, 800);
     })
 
+    
+    // Checking if element is in viewport (used for parallax scroll)
+    function isInViewport(node) {
+        var rect = node.getBoundingClientRect()
+        return (
+          (rect.height > 0 || rect.width > 0) &&
+          rect.bottom >= 0 &&
+          rect.right >= 0 &&
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+        )
+    }
+
 
     // SCROLL POSITION
     let scrollpos = 0;
     $(window).scroll(function () { // when scrolling
         scrollpos = $(window).scrollTop();
+
+        // parallax scroll
+        $('.parallax').each(function(index, element) {
+            var initY = $(this).offset().top
+            var height = $(this).height()
+            var endY  = initY + $(this).height()
+        
+            // Check if the element is in the viewport.
+            var visible = isInViewport(this)
+            if(visible) {
+              var diff = scrollpos - initY
+              var ratio = Math.round((diff / height) * 500)
+              $(this).css('background-position','center ' + parseInt(-(ratio * 1.5)) + 'px')
+            }
+        })
     });
 
 
