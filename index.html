@@ -1,328 +1,190 @@
-﻿<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Xilog</title>
-    <link rel="shortcut icon" href="favicon.ico" />
-    <meta name="description" content="It's me, Xilog.">
-    <meta name="keywords" content="stuff, home, homepage, xilog">
-    <meta name="author" content="Alan Ray D'sousa">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="Xilog">
-    <meta name="twitter:creator" content="@XilogOfficial">
-    <meta name="twitter:title" content="It's me, Xilog.">
-    <meta name="twitter:description" content="This is my website.">
-    <meta name="twitter:image" content="./_img/logo.png">
-    <meta property="og:url" content="https://xilog.xyz/">
-    <meta property="og:title" content="It's me, Xilog.">
-    <meta property="og:description" contet="This is my website.">
-    <meta property="og:image" content="https://xilog.xyz/_img/logo.png">
-    <meta property="og:type" content="profile">
-    <meta property="og:site_name" content="Xilog">
-    <meta name="theme-color" content="#1ec1c7">
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410202-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+---
+layout: default
+title: Xilog
+---
+
+<div class="section" id="intro">
+    <h2> About Me </h2>
+    <hr class="divider">
+    <div class="container">
+        <h3 data-aos="text-contract" data-aos-anchor-placement="center-bottom"><u>Xilog</u></h3>
+        <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
+        style="margin-top: 20px"> BIO </h4>
+        <p data-aos="fade" data-aos-anchor-placement="top-bottom">
+            Hey, it's me, Xilog. Also known in real life as Alan D'souza. I make code, mostly with HTML and JS.
+            My skills include JavaScript, basic Python as of now, front end web design, a little bit of back end, and some basic graphic design.
+            All my skills are self taught, with a bit from other sources. My skills will improve as I work on more and more projects!
+        </p>
         
-        gtag('config', 'UA-111410202-1');
-    </script>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-2567231794200405",
-            enable_page_level_ads: true
-        });
-    </script>
-    
-    <link rel="stylesheet" type="text/css" href="./_css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./_css/style.css">
-    <link rel="stylesheet" type="text/css" href="./_css/animations.css"> <!--Custom animations for AOS!-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://kit.fontawesome.com/926dde123c.js"></script>
-    <script src="_js/easteregg.js" async></script>
-    <script src="_js/main.js" async></script>
-    <script src="_js/portfolio.js" async></script>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        $(window).on('load', function() {
-            AOS.init({ duration: 800 }); // initialize animate on scroll after document ready
-        });
-    </script>
-</head>
-
-
-<body class="parallax">
-    <!--
-        Hey. Hey! I'm talking to you. Yes you.
-        I know you're probably getting "inspired" by my code.
-        Quit it! Haha joking, this code is already stolen. Have at it
-    -->
-    <nav>
-        <a id="navlogo" href=""><img src="_img/logo-white.png" alt="Logo" style="width: 1.5em; height: auto"> Xilog</a>
-        <!--<a href="privacy.html">Privacy Policy</a>-->
-
-        <div class="menu" style="display: none; color: white"><i class="fas fa-bars"></i></div>
-    </nav>
-
-    <div class="hero" id="top">
-        <a href=""> <img src="_img/logo.png" alt="Logo" class="logo"></a>
-        <h1 id="xilogheader"> Xilog </h1>
-        <div class="chevron-down blink"></div>
-        <div class="chevron-down blink" style="margin-top: -1em; animation-delay: 0.1s;"></div>
+        
+        <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
+        style="margin-top: 20px"> SKILLS </h4>
+        <p2 data-aos="fade" data-aos-anchor-placement="top-bottom">
+            <i class="fab fa-js"></i> Not bad JS<br>
+            <i class="fab fa-html5"></i> Decent enough HTML<br>
+            <i class="fab fa-css3"></i> Alright at CSS<br>
+            <i class="fab fa-python"></i> Unfortunate Python Skills<br>
+            <i class="fas fa-image"></i> Can do some graphic design
+        </p2>
+        
+        
+        <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
+        style="margin-top: 20px"> PROGRESS </h4>
+        <p2>
+            Here's how my skills stack up, at least how I would say they compare to those of an expert.
+        </p2>
+        <div class="row p-bars">
+            <div data-aos="skew-fadein"
+            class="col-md-6 aos-trigger">
+            <p>JavaScript</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                    <span>55%</span>
+                </div>
+            </div> 
+        </div>
+        <div data-aos="skew-fadein"
+        data-aos-delay="100"
+        data-aos-anchor=".aos-trigger"
+        class="col-md-6">
+        <p>Front-End Webdesign</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                <span>60%</span>
+            </div>
+        </div> 
     </div>
-    
-    <div class="content">
-        <div class="section" id="intro">
-            <h2> About Me </h2>
-            <hr class="divider">
-            <div class="container">
-                <h3 data-aos="text-contract" data-aos-anchor-placement="center-bottom"><u>Xilog</u></h3>
-                <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
-                style="margin-top: 20px"> BIO </h4>
-                <p data-aos="fade" data-aos-anchor-placement="top-bottom">
-                    Hey, it's me, Xilog. Also known in real life as Alan D'souza. I make code, mostly with HTML and JS.
-                    My skills include JavaScript, basic Python as of now, front end web design, a little bit of back end, and some basic graphic design.
-                    All my skills are self taught, with a bit from other sources. My skills will improve as I work on more and more projects!
-                </p>
+    <div data-aos="skew-fadein"
+    data-aos-delay="200"
+    data-aos-anchor=".aos-trigger"
+    class="col-md-6">
+    <p>Python</p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width:20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+            <span>20%</span>
+        </div>
+    </div> 
+</div>
+<div data-aos="skew-fadein"
+data-aos-delay="300"
+data-aos-anchor=".aos-trigger"
+class="col-md-6">
+<p>Graphic Design</p>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width:45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+        <span>45%</span>
+    </div>
+</div> 
+</div>
+</div>
+</div>
+</div>
 
+<div class="section" id="portfolio">
+    <h2>Portfolio</h2>
+    <hr class="divider">
+    <div class="container" style="text-align: left; margin-bottom: 30px;">
+        <p>Here's my portfolio of graphic design work.</p>
+        <div id="port-items" class="centered">
+            <div class="p-item">
+                <img src="img/portfolio/corkboard.png" alt="Corkboard Logo" class="img-responsive centered norightclick"style="display: block;">
+                <div class="p-name">Corkboard Logo</div>
+                <div class="p-desc">Logo for my Discord bot.</div>
+            </div>
+            <div class="p-item">
+                <img src="img/portfolio/extioh.jpg" alt="Extioh Logo" class="img-responsive centered norightclick" style="display: block;">
+                <div class="p-name">Extioh Logo</div>
+                <div class="p-desc">A logo I recreated for an acquaintaince's Discord bot.</div>
+            </div>
+            <div class="p-item">
+                <img src="img/portfolio/shift.jpg" alt="Cheezy Logo" class="img-responsive centered norightclick" style="display: block;">
+                <div class="p-name">Shift Logo</div>
+                <div class="p-desc">A logo I created for a friend's Discord bot.</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
-                style="margin-top: 20px"> SKILLS </h4>
-                <p2 data-aos="fade" data-aos-anchor-placement="top-bottom">
-                    <i class="fab fa-js"></i> Not bad JS<br>
-                    <i class="fab fa-html5"></i> Decent enough HTML<br>
-                    <i class="fab fa-css3"></i> Alright at CSS<br>
-                    <i class="fab fa-python"></i> Unfortunate Python Skills<br>
-                    <i class="fas fa-image"></i> Can do some graphic design
-                </p2>
-
-
-                <h4 data-aos="expandy" data-aos-anchor-placement="center-bottom"
-                style="margin-top: 20px"> PROGRESS </h4>
-                <p2>
-                    Here's how my skills stack up, at least how I would say they compare to those of an expert.
-                </p2>
-                <div class="row p-bars">
-                    <div data-aos="skew-fadein"
-                    class="col-md-6 aos-trigger">
-                        <p>JavaScript</p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width:55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                                <span>55%</span>
-                            </div>
-                        </div> 
-                    </div>
-                    <div data-aos="skew-fadein"
-                    data-aos-delay="100"
-                    data-aos-anchor=".aos-trigger"
-                    class="col-md-6">
-                        <p>Front-End Webdesign</p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width:60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                <span>60%</span>
-                            </div>
-                        </div> 
-                    </div>
-                    <div data-aos="skew-fadein"
-                    data-aos-delay="200"
-                    data-aos-anchor=".aos-trigger"
-                    class="col-md-6">
-                        <p>Python</p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width:20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                <span>20%</span>
-                            </div>
-                        </div> 
-                    </div>
-                    <div data-aos="skew-fadein"
-                    data-aos-delay="300"
-                    data-aos-anchor=".aos-trigger"
-                    class="col-md-6">
-                        <p>Graphic Design</p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width:45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
-                                <span>45%</span>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
+<div class="section" id="contact">
+    <h2>Contact</h2>
+    <hr class="divider">
+    <div class="container">
+        <div data-aos="expandy" class="contact-slides">
+            <!-- icons -->
+            <div class="slide">
+                <a target="_blank" href="mailto:alanrd772@gmail.com">
+                    <i class="fas fa-envelope mail" style="font-size: 5rem"></i>
+                </a>
+                <div class="text"><p>hello@xilog.xyz</p></div>
+            </div>
+            
+            <div class="slide">
+                <a target="_blank">
+                    <i class="fab fa-discord discord" style="font-size: 5rem"></i>
+                </a>
+                <div class="text"><p>Xilog#6392</p></div>
+            </div>
+            
+            <div class="slide">
+                <a target="_blank" href="https://twitter.com/@XilogOfficial">
+                    <i class="fab fa-twitter twitter" style="font-size: 5rem"></i>
+                </a>
+                <div class="text"><p>@XilogOfficial</p></div>
             </div>
         </div>
         
-        <div class="section" id="portfolio">
-            <h2>Portfolio</h2>
-            <hr class="divider">
-            <div class="container" style="text-align: left; margin-bottom: 30px;">
-                <p>Here's my portfolio of graphic design work.</p>
-                <div id="port-items" class="centered">
-                    <div class="p-item">
-                        <img src="_img/portfolio/corkboard.png" alt="Corkboard Logo" class="img-responsive centered norightclick"style="display: block;">
-                        <div class="p-name">Corkboard Logo</div>
-                        <div class="p-desc">Logo for my Discord bot.</div>
-                    </div>
-                    <div class="p-item">
-                        <img src="_img/portfolio/extioh.jpg" alt="Extioh Logo" class="img-responsive centered norightclick" style="display: block;">
-                        <div class="p-name">Extioh Logo</div>
-                        <div class="p-desc">A logo I recreated for an acquaintaince's Discord bot.</div>
-                    </div>
-                    <div class="p-item">
-                        <img src="_img/portfolio/shift.jpg" alt="Cheezy Logo" class="img-responsive centered norightclick" style="display: block;">
-                        <div class="p-name">Shift Logo</div>
-                        <div class="p-desc">A logo I created for a friend's Discord bot.</div>
-                    </div>
-                </div>
-            </div>
+        <!-- the dots -->
+        <div data-aos="fade-up" data-aos-trigger=".contact-slides" style="text-align:center">
+            <span id="mailh" class="dot" onclick="currentSlide(1)"></span>
+            <span id="discordh" class="dot" onclick="currentSlide(2)"></span>
+            <span id="twitterh" class="dot" onclick="currentSlide(3)"></span>
         </div>
         
-        <div class="section" id="contact">
-            <h2>Contact</h2>
-            <hr class="divider">
-            <div class="container">
-                <div data-aos="expandy" class="contact-slides">
-                    <!-- icons -->
-                    <div class="slide">
-                        <a target="_blank" href="mailto:alanrd772@gmail.com">
-                            <i class="fas fa-envelope mail" style="font-size: 5rem"></i>
-                        </a>
-                        <div class="text"><p>hello@xilog.xyz</p></div>
-                    </div>
-                    
-                    <div class="slide">
-                        <a target="_blank">
-                            <i class="fab fa-discord discord" style="font-size: 5rem"></i>
-                        </a>
-                        <div class="text"><p>Xilog#6392</p></div>
-                    </div>
-                    
-                    <div class="slide">
-                        <a target="_blank" href="https://twitter.com/@XilogOfficial">
-                            <i class="fab fa-twitter twitter" style="font-size: 5rem"></i>
-                        </a>
-                        <div class="text"><p>@XilogOfficial</p></div>
-                    </div>
-                </div>
-                
-                <!-- the dots -->
-                <div data-aos="fade-up" data-aos-trigger=".contact-slides" style="text-align:center">
-                    <span id="mailh" class="dot" onclick="currentSlide(1)"></span>
-                    <span id="discordh" class="dot" onclick="currentSlide(2)"></span>
-                    <span id="twitterh" class="dot" onclick="currentSlide(3)"></span>
-                </div>
-                
-                <script>
-                    var index = 1;
-                    showSlide(index);
-                    
-                    function currentSlide(n) {
-                        showSlide(index = n);
-                    }
-                    
-                    function showSlide(n) {
-                        var i;
-                        var slides = $(".slide"), count = slides.length;
-                        var dots = $(".dot");
-                        if (n > slides.length) index = 1
-                        if (n < 1) index = slides.length
-                        slides.each(function (i) {
-                            if (i !== index-1) {
-                                $(this).animate({opacity: 0, right: '40%'}, 400, function () {
-                                    $(this).css({opacity: 1, right: 0, display: 'none'})
-                                })
-                            }
-                        }).promise().done(function () {
-                            slides.eq(index-1).css({opacity: 0, right: '-40%', display: 'block'}).animate({opacity: 1, right: 0}, 400);
+        <script>
+            var index = 1;
+            showSlide(index);
+            
+            function currentSlide(n) {
+                showSlide(index = n);
+            }
+            
+            function showSlide(n) {
+                var i;
+                var slides = $(".slide"), count = slides.length;
+                var dots = $(".dot");
+                if (n > slides.length) index = 1
+                if (n < 1) index = slides.length
+                slides.each(function (i) {
+                    if (i !== index-1) {
+                        $(this).animate({opacity: 0, right: '40%'}, 400, function () {
+                            $(this).css({opacity: 1, right: 0, display: 'none'})
                         })
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
-                        }
-                        
-                        dots[index-1].className += " active";
-                    } 
-                </script>
-            </div>
-        </div>
-        
-        <!--
-        <div class="section" id="fun">
-            <h2>Fun Tools</h2>
-            <hr class="divider">
-            <div class="container" style="text-align: left; margin-bottom: 30px;">
-                <p2>
-                    If you want to visit the fun tools that were previously displayed on the homepage, please click the button below.
-                </p2>
-                <br>
-                <a href="./funstuff.html"><input type="button" value="FUN!" class="button1"></a>
-            </div>
-        </div>
-        -->
+                    }
+                }).promise().done(function () {
+                    slides.eq(index-1).css({opacity: 0, right: '-40%', display: 'block'}).animate({opacity: 1, right: 0}, 400);
+                })
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                
+                dots[index-1].className += " active";
+            } 
+        </script>
     </div>
-    
-    <div class="footer">
-        <p3>
-            Copyright &copy; <a id="trigger">Alan Ray D'souza</a> 2020
-            <br>
-            Background idea by <a href="http://htbrown.com">Hayden Brown</a>
-            <br>
-            Night Mode<br>
-            <label class="switch">
-                <input type="checkbox" class="darkmode">
-                <span class="slider round"></span>
-            </label>
-            <br>
-            <a href="privacy.html">Privacy Policy</a>
-        </p3>
-    </div>
-    
-    <!-- MODALS BELOW -->
-    <div class="modal" id="easteregg" style="display: none">
-        <div id="easteregg-content">
-            <h2>You found me!</h2>
-            <hr class="divider">
-            <div class="container" style="text-align: left;">
-                <h3>I'm an easteregg.</h3>
-                <p>
-                    Did you know this site has been through 2 redesigns so far?
-                    Re-enter the Konami code or click close to close this!
-                </p>
-                <br>
-                <p2>
-                    Did you also know that the first redesign was because... my site looked like <a href="https://old.xilog.xyz">this?</a> Enjoy!
-                </p>
-            </div>
-            <button id="close">Close</button>
-        </div>
-    </div>
+</div>
 
-    <div class="modal" id="p-view"></div>
-    
-    <a href="#top"></a><div class="scrollup">
-        <i class="fa fa-chevron-up" style="font-size: 2em; color: white"></i>
-    </div></a>
-    
-    <div class="modal" id="loader-bg">
-        <svg id="loader" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-            <path
-             d="M249,256H375L511.776,431.0733l205.19-262.6315A398.1316,398.1316,0,0,0,512,112c-220.9139,0-400,179.0861-400,400A398.7279,398.7279,0,0,0,228.27,793.9446L448.7746,511.7114Z"/><path d="M795.73,230.0554,575.2255,512.2886,775,768H649L512.224,592.9268l-205.19,262.6314A398.1316,398.1316,0,0,0,512,912c220.9139,0,400-179.0861,400-400A398.7282,398.7282,0,0,0,795.73,230.0554Z"
-            />
-        </svg>
-    </div>
-    
-    <div class="modal" id="menu-bg" style="display: none">
-        <div id="menu">
-            <a class="m-close"><i class="fas fa-times"></i> Close</a>
+<!--
+    <div class="section" id="fun">
+        <h2>Fun Tools</h2>
+        <hr class="divider">
+        <div class="container" style="text-align: left; margin-bottom: 30px;">
+            <p2>
+                If you want to visit the fun tools that were previously displayed on the homepage, please click the button below.
+            </p2>
+            <br>
+            <a href="./funstuff.html"><input type="button" value="FUN!" class="button1"></a>
         </div>
     </div>
-</body>
+-->
 
-</html>
+
