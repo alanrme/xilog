@@ -466,6 +466,7 @@ input:checked + .slider:before {
 
 
 #easteregg-content {
+	color: white;
 	pointer-events: auto;
 	margin: 5% auto; /* 15% from the top and centered */
 	padding: 20px;
