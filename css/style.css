@@ -6,7 +6,7 @@ html {
 @media screen and (min-width: 1600px) { html { font-size: 20px; } }
 @media screen and (min-width: 2000px) { html { font-size: 24px; } }
 body {
-	background-image: url("../_img/bg.png");
+	background-image: url("../img/bg.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center 0px;
@@ -30,12 +30,12 @@ body.dark .footer { background-color: #252525; }
 
 @media only screen and (max-width: 1920px) {
 	body {
-		background-image: url("../_img/bg-med.png");
+		background-image: url("../img/bg-med.png");
 	}
 }
 @media only screen and (max-width: 640px) {
 	body {
-		background-image: url("../_img/bg-tall.png");
+		background-image: url("../img/bg-tall.png");
 	}
 	.section { padding-left: 7vw !important; padding-right: 7vw !important; }
 	.logo {
@@ -91,6 +91,7 @@ p3 {
 	font-family: "Montserrat", "Helvetica", "Arial";
 	font-size: 1.1em;
 }
+
 
 
 
@@ -484,7 +485,7 @@ input:checked + .slider:before {
 	justify-content: center;
 }
 #port-items .p-item {
-	max-width: 10em;
+	width: auto;
 	height: 10em;
 	margin: 1em;
 	text-align: center;
@@ -492,8 +493,8 @@ input:checked + .slider:before {
 	vertical-align: middle;
 	position: relative;
 	cursor: pointer;
-	-webkit-border-radius: 30%;
-	border-radius: 30%;
+	-webkit-border-radius: 2em;
+	border-radius: 2em;
 	-webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
 	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
 	-webkit-transition: 0.5s;
@@ -502,14 +503,13 @@ input:checked + .slider:before {
 #port-items .p-item:hover {
 	-webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
 	box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
-	-webkit-border-radius: 10%;
-	border-radius: 10%;
-	transform: scale(1.02, 1.02);
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 }
 #port-items .p-item img {
-	max-width: 10em;
+	max-height: 10em;
 	position: relative;
 }
 #port-items .p-item .p-name, #port-items .p-item .p-desc {
