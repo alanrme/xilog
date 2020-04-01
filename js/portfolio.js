@@ -7,8 +7,8 @@ $(function(){
         let item = $(this);
         img.on('click', function () { // if image is clicked on
             portView.empty(); // clear portview
-            item.clone().appendTo(portView); // clone this to portview
-            portView.prepend('<div id="p-over"></div>'); // add the darkened bg
+            item.clone().appendTo(portView); // clone this to portview, on top of p-over
+            portView.prepend('<div id="p-over"></div>'); // add a trigger behind to close
             portView.fadeIn(); // animate portview from 0 to 1 opacity
             $('#p-over').on('click', function () {
                 portView.fadeOut(function () { portView.empty(); })
