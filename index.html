@@ -145,7 +145,7 @@ title: Xilog
         </div>
         
         <!-- the dots -->
-        <div data-aos="fade-up" data-aos-trigger=".contact-slides" style="text-align:center">
+        <div data-aos="fade-up" data-aos-anchor=".contact-slides" style="text-align:center">
             <span id="mailh" class="dot" onclick="currentSlide(1)"></span>
             <span id="discordh" class="dot" onclick="currentSlide(2)"></span>
             <span id="twitterh" class="dot" onclick="currentSlide(3)"></span>
@@ -172,7 +172,14 @@ title: Xilog
                         })
                     }
                 }).promise().done(function () {
-                    slides.eq(index-1).css({opacity: 0, right: '-40%', display: 'block'}).animate({opacity: 1, right: 0}, 400);
+                    slides.eq(index-1).css({
+                        opacity: 0, 
+                        right: '-40%', 
+                        display: 'block'
+                    }).animate({
+                        opacity: 1, 
+                        right: 0
+                    }, 400);
                 })
                 for (i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" active", "");
@@ -197,5 +204,3 @@ title: Xilog
         </div>
     </div>
 -->
-
-

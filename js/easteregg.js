@@ -6,7 +6,10 @@ $(function(){
 
     //CLICK-TRIGGER EASTEREGG
     $('#trigger').click(function() { // when trigger clicked
-        x.fadeIn();
+        let audio = new Audio('../audio/easteregg.wav');
+        audio.play();
+        $('body').css('animation', 'shake 0.5s')
+        setTimeout(function() { x.fadeIn() }, 2000);
     });
 
 
@@ -33,7 +36,6 @@ $(function(){
         
         // If we've started, pay attention to key presses, looking for right sequence.
         if (started){
-            
             if (konamikeys[count] == key){
                 count++;
             } else {
@@ -43,7 +45,10 @@ $(function(){
             if (count == 10){
                 // Success!
                 if (x.css('display') === "none") { // if diplay none fade in
-                    x.fadeIn()
+                    let audio = new Audio('../audio/easteregg.wav');
+                    audio.play();
+                    $('body').css('animation', 'shake 0.5s')
+                    setTimeout(function() { x.fadeIn() }, 2000);
                 } else {
                     x.fadeOut(); // vice versa
                 }
