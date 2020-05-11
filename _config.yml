@@ -22,6 +22,8 @@ title: Xilog
 url: "https://xilog.xyz" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
+sass:
+    sass_dir: css
 
 # Exclude from processing.
 # The following items will not be processed, by default.

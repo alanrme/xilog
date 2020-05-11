@@ -1,3 +1,14 @@
+---
+---
+
+/* SASS VARIABLES */
+/* Fonts */
+$font-stack: "Montserrat", "Helvetica", "Arial";
+$light-font: "Montserrat Light", $font-stack;
+$primary: #1ec1c7;
+$secondary: #4e44b0;
+
+
 html {
 	font-size: 13px;
 }
@@ -16,6 +27,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
+    overflow-x: hidden; // hide horizontal scroll
 
 	transition: 0.5s;
 	transition-property: background-color, color;
@@ -52,44 +64,58 @@ body.dark .footer { background-color: #252525; }
 
 
 h1 {
-	font-family: "Montserrat Light", "Montserrat", "Helvetica", "Arial";
-	font-style: normal;
-	font-size: 4em;
+	font: {
+		family: "Montserrat Light", $font-stack;
+		style: normal;
+		size: 4em;
+	}
 	text-align: center;
 }
 
 h2 {
-	font-family: "Montserrat Light", "Montserrat", "Helvetica", "Arial";
-	font-style: normal;
-	font-size: 3em;
+	font: {
+		family: "Montserrat Light", $font-stack;
+		style: normal;
+		size: 3em;
+	}
 	text-align: center;
 }
 
 h3 {
-	font-family: "Montserrat Light", "Montserrat", "Helvetica", "Arial";
-	font-style: normal;
-	font-size: 2.5em;
+	font: {
+		family: "Montserrat Light", $font-stack;
+		style: normal;
+		size: 2.5em;
+	}
 }
 
 h4 {
-	font-family: "Montserrat Light", "Montserrat", "Helvetica", "Arial";
-	font-style: normal;
-	font-size: 2em;
+	font: {
+		family: "Montserrat Light", $font-stack;
+		style: normal;
+		size: 2em;
+	}
 }
 
 p {
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.5em;
+	font: {
+		family: $font-stack;
+		size: 1.5em;
+	}
 }
 
 p2 {
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.3em;
+	font: {
+		family: $font-stack;
+		size: 1.3em;
+	}
 }
 
 p3 {
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.1em;
+	font: {
+		family: $font-stack;
+		size: 1.1em;
+	}
 }
 
 
@@ -146,7 +172,7 @@ hr.divider {
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	background: linear-gradient(90deg, #1ec1c7, #4e44b0);
+	background: linear-gradient(90deg, $primary, $secondary);
 	background-size: 200% 200%;
 	
 	-webkit-animation: animatedgradient 5s ease infinite;
@@ -242,11 +268,51 @@ nav {
 	height: auto;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.35);
+
+
+	/* target tab */
+	a {
+		display: inline-block;
+		min-height: 2em;
+		color: white;
+		background: rgba(255,255,255,0);
+		font-family: $font-stack;
+		font-size: 1.5rem;
+		padding: 5px 15px;
+		text-decoration: none;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
+	a:hover {
+		background: rgba(255,255,255,0.2);
+		color: white;
+		text-decoration: none;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	/* target nav logo */
+	#navlogo {
+		color: white !important;
+		font-family: "Montserrat Medium", $font-stack;
+		font-size: 1.5rem;
+	}
+
+	/* menu button for mobile */
+	.menu {
+		height: auto;
+		max-height: 3em;
+		width: 100%;
+		background: rgba(255,255,255,0);
+		font-size: 3rem;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
 }
 /* the fixed nav bar for when the user scrolls */
 nav.scrolled {
 	position: fixed;
-	background: linear-gradient(120deg, #1ec1c7, #4e44b0);
+	background: linear-gradient(120deg, $primary, $secondary);
 	background-size: 200% 200%;
 	transform: translateY(-100%);
 	
@@ -259,43 +325,6 @@ nav.awake {
 	transform: translateY(0);
 	transition: transform 0.5s;
 }
-/* target tab */
-nav a {
-	display: inline-block;
-	min-height: 2em;
-	color: white;
-	background: rgba(255,255,255,0);
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.5rem;
-	padding: 5px 15px;
-	text-decoration: none;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-}
-/* hover over tab */
-nav a:hover {
-	background: rgba(255,255,255,0.2);
-	color: white;
-	text-decoration: none;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-}
-/* target nav logo */
-nav #navlogo {
-	color: white !important;
-	font-family: "Montserrat Medium", "Montserrat", "Helvetica", "Arial";
-	font-size: 1.5rem;
-}
-/* nav menu button for mobile */
-nav .menu {
-	height: auto;
-	max-height: 3em;
-	width: 100%;
-	background: rgba(255,255,255,0);
-	font-size: 3rem;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-}
 
 
 
@@ -305,31 +334,34 @@ nav .menu {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-}
-/* target mobile menu */
-#menu-bg #menu {
-	position: absolute;
-	width: 80%;
-	height: auto;
-}
-/* target tab */
-#menu-bg #menu a {
-	display: block;
-	min-height: 2em;
-	background: transparent;
-	color: white !important;
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.5rem;
-	padding: 5px;
-	text-decoration: none !important;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-}
-/* target menu logo */
-#menu-bg #menu #navlogo {
-	color: white !important;
-	font-family: "Montserrat Medium", "Montserrat", "Helvetica", "Arial";
-	font-size: 1.5rem;
+
+	/* target mobile menu */
+	#menu {
+		position: absolute;
+		width: 80%;
+		height: auto;
+
+		/* target tab */
+		a {
+			display: block;
+			min-height: 2em;
+			background: transparent;
+			color: white !important;
+			font-family: $font-stack;
+			font-size: 1.5rem;
+			padding: 5px;
+			text-decoration: none !important;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+		}
+
+		/* target menu logo */
+		#navlogo {
+			color: white !important;
+			font-family: "Montserrat Medium", $font-stack;
+			font-size: 1.5rem;
+		}
+	}
 }
 
 
@@ -356,7 +388,7 @@ nav .menu {
 
 
 
-
+/* progress bar background */
 .progress {
 	height: 2em;
 	border-radius: 999px
@@ -364,19 +396,22 @@ nav .menu {
 body.dark .progress {
 	background: #444;
 }
+/* progress bar filled part */
 .progress-bar {
 	height: 2em;
 	border-radius: 999px;
-	background: linear-gradient(120deg, #1ec1c7, #4e44b0);
+	background: linear-gradient(120deg, $primary, $secondary);
 	background-size: 200% 200%;
 	
 	-webkit-animation: animatedgradient 5s ease infinite;
 	-moz-animation: animatedgradient 5s ease infinite;
 	animation: animatedgradient 5s ease infinite;
-}
-.progress-bar span {
-	font-family: "Montserrat", "Helvetica", "Arial";
-	font-size: 1.4rem;
+
+	/* progress bar filled part text */
+	span {
+		font-family: $font-stack;
+		font-size: 1.4rem;
+	}
 }
 .p-bars .col-md-6 p {
 	margin-bottom: 0;
@@ -425,14 +460,13 @@ body.dark .progress {
     transition: .4s;
 }
 input:checked + .slider {
-    background: linear-gradient(120deg, #1ec1c7, #4e44b0);
+    background: linear-gradient(120deg, $primary, $secondary);
 	background-size: 200% 200%;
 	-webkit-animation: animatedgradient 5s ease infinite;
 	-moz-animation: animatedgradient 5s ease infinite;
 	animation: animatedgradient 5s ease infinite;
 }
 input:hover + .slider {
-    box-shadow: 0 0 1px #1ec1c7;
 	-webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,0.4);
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.4);
 }
@@ -558,7 +592,6 @@ input:checked + .slider:before {
 /* Slideshow container */
 .contact-slides {
 	position: relative;
-	margin: auto;
 }
 
 /* Hide the images by default */
@@ -637,7 +670,7 @@ button, a.button, input[type="button"] {
 	display: inline-block;
 	cursor: pointer;
 	color: black;
-	font-family: "Montserrat", "Helvetica", "Arial";
+	font-family: $font-stack;
 	font-size: 1.5rem;
 	padding: 6px 14px;
 	text-decoration: none;
@@ -789,3 +822,18 @@ table, th, td {
 	50% {text-shadow: 0px 25px 15px rgba(0,0,0,0.2); transform: translatey(-20px);}
 	100% {text-shadow: 0px 5px 5px rgba(0,0,0,0.2); transform: translatey(0px);}
 }
+
+
+@keyframes shake {
+	0% { transform: translate(10px, 0) }
+	10% { transform: translate(-10px, 0) }
+	20% { transform: translate(8px, 0) }
+	30% { transform: translate(-8px, 0) }
+	40% { transform: translate(6px, 0) }
+	50% { transform: translate(-6px, 0) }
+	60% { transform: translate(4px, 0) }
+	70% { transform: translate(-4px, 0) }
+	80% { transform: translate(2px, 0) }
+	90% { transform: translate(-2px, 0) }
+	100% { transform: translate(0px, 0) }
+  }
