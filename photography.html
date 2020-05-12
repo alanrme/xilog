@@ -14,7 +14,12 @@ permalink: /photography
             {% assign sorted = (site.photos | reverse %}
             {% for photo in sorted %}
                 <div class="p-item">
-                    <img src="img/photography/{{ photo.image }}" alt="{{ photo.title }}" class="img-responsive centered"style="display: block;">
+                    <div class="container">
+                        <img src="img/photography/{{ photo.image }}" alt="{{ photo.title }}" class="img-responsive centered"style="display: block;">
+                        <div class="middle">
+                            <div class="text">John Doe</div>
+                        </div>
+                    </div>
                     <div class="p-name">{{ photo.title }}</div>
                     <div class="p-desc">{{ photo.content }}</div>
                 </div>

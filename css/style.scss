@@ -534,6 +534,13 @@ input:checked + .slider:before {
 	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
+	.img-container {
+		img {
+			max-height: 10em;
+			position: relative;
+		}
+		.middle { display: none }
+	}
 }
 #port-items .p-item:hover {
 	-webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
@@ -542,10 +549,6 @@ input:checked + .slider:before {
 	border-radius: 1em;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
-}
-#port-items .p-item img {
-	max-height: 10em;
-	position: relative;
 }
 #port-items .p-item .p-name, #port-items .p-item .p-desc {
 	display: none;
@@ -562,27 +565,53 @@ input:checked + .slider:before {
 	width: 100%;
 }
 #p-view .p-item {
+	display: flex;
 	height: 100%;
 	padding: 1em;
-	padding-bottom: 5.5em;
 	z-index: 10000;
-}
-#p-view .p-item img {
-	max-height: 100%;
-	max-width: 100%;
-	width: auto;
-}
-#p-view .p-item .p-name {
-	position: relative;
-	color: white;
-	font-family:"Montserrat", "Helvetica", "Arial";
-	font-size: 1.5rem;
-}
-#p-view .p-item .p-desc {
-	position: relative;
-	color: white;
-	font-family:"Montserrat", "Helvetica", "Arial";
-	font-size: 1.2rem;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.img-container {
+		display: inline-flex;
+		position: relative;
+		// for some reason this makes .middle fill container up properly
+		img {
+			max-height: 80vh;
+			max-width: 100%;
+			width: auto;
+		}
+		.middle { // the thingy that appears when hovering on image
+			background-color: black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			text-align: center;
+			transition: .5s ease;
+		}
+		.middle:hover {
+			opacity: 0.8;
+		}
+	}
+	.p-name {
+		position: relative;
+		color: white;
+		font-family:"Montserrat", "Helvetica", "Arial";
+		font-size: 1.5rem;
+	} .p-desc {
+		position: relative;
+		color: white;
+		font-family:"Montserrat", "Helvetica", "Arial";
+		font-size: 1.2rem;
+	}
 }
 
 
@@ -679,16 +708,17 @@ button, a.button, input[type="button"] {
 	box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
-}
-button:hover, a.button:hover, input[type="button"]:hover {
-	background: #ccc;
-	transform: scale(1.02, 1.02);
-	-webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
-	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
-}
-button:active, a.button:active, input[type="button"]:active {
-	position: relative;
-	top: 2px;
+
+	&:hover {
+		background: #ccc;
+		transform: scale(1.02, 1.02);
+		-webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+		box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+	}
+	&:active {
+		position: relative;
+		top: 2px;
+	}
 }
 
 
