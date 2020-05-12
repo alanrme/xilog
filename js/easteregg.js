@@ -1,3 +1,11 @@
+function easteregg(x) {
+    // var for compatibility
+    var audio = new Audio('../audio/easteregg.wav');
+    audio.play();
+    $('body').css('animation', 'none').css('animation', 'shake 0.5s')
+    setTimeout(function() { x.fadeIn() }, 2000);
+}
+
 $(function(){
     var x = $('#easteregg') // find easteregg
     $('#easteregg-content #close').click(function() { // when close button clicked
@@ -6,11 +14,7 @@ $(function(){
 
     //CLICK-TRIGGER EASTEREGG
     $('#trigger').click(function() { // when trigger clicked
-        // var for compatibility
-        var audio = new Audio('../audio/easteregg.wav');
-        audio.play();
-        $('body').css('animation', 'shake 0.5s')
-        setTimeout(function() { x.fadeIn() }, 2000);
+        easteregg(x)
     });
 
 
@@ -46,14 +50,7 @@ $(function(){
             if (count == 10){
                 // Success!
                 if (x.css('display') === "none") { // if diplay none fade in
-                    var audio = new Audio('../audio/easteregg.wav'); // new audio element
-                    audio.play(); // play it
-                    // remove any leftover animation and add a shake animation to body
-                    $('body').css('animation', 'none').css('animation', 'shake 0.5s')
-                    setTimeout(function() {
-                        x.fadeIn();
-                        $('body');
-                    }, 2000);
+                    easteregg(x)
                 } else {
                     x.fadeOut(); // vice versa
                 }
