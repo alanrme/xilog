@@ -1,0 +1,45 @@
+---
+---
+
+[data-aos="expandx"] {
+    transform: scaleX(0);
+    transition-property: transform;
+    &.aos-animate {
+        transform: scaleX(1);
+    }
+}
+
+[data-aos="expandy"] {
+    transform: scaleY(0);
+    transition-property: transform;
+    &.aos-animate {
+        transform: scaleY(1);
+    }
+}
+
+[data-aos="width"] {
+    width: 0%;
+    transition-property: transform;
+    &.aos-animate {
+        width: 100%
+    }
+}
+
+[data-aos="text-contract"] {
+    letter-spacing: 0.3em;
+    opacity: 0;
+    transition-property: letter-spacing opacity;
+    &.aos-animate {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
+
+[data-aos="skew-fadein"] {
+    transform: matrix(1, 0.1, 0, 1, 0, 50);
+    opacity: 0;
+    &.aos-animate {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 1;
+    }
+}
