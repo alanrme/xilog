@@ -17,11 +17,11 @@ $(function(){
 
 
     // DARK MODE
-    if ((localStorage.getItem('mode') || 'dark') === 'dark') { // if localstorage says user's last setting is dark
+    // if localstorage says user's last setting is dark
+    if ((localStorage.getItem('mode') || 'dark') === 'dark') {
         $('body').addClass('dark'); // make the page dark
-        $(".darkmode").prop('checked', true); // and check darkmode box
-    } else { $('body').removeClass('dark'); $(".darkmode").prop('checked', false); }
-    // else vice versa
+        $(".darkmode").prop('checked', true); // check darkmode box
+    }
 
     $(".darkmode").on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
         localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
@@ -37,16 +37,15 @@ $(function(){
             if(!$(this).is('menu')) $(this).clone().appendTo($('#menu')); // don't clone the menu button though!
         })
 
-        $('#navbar').css('margin-top', '0').animate({'margin-top': '-2em'}, 500);
         $('#menu-bg').css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 500);
-        // remove navbar and fade in menu
+        // fade in menu
     });
     $('.m-close, #menu-bg').on("click", function(e){ // when close button clicked
-        // put navbar back and fade out menu
-        $('#navbar').css('margin-top', '-2em').animate({'margin-top': '0'}, 500);
-        $('#menu-bg').animate({opacity: 0}, 500, function () { $('#menu-bg').css('display', 'none') });
-        
-        $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
+        // and fade out menu
+        $('#menu-bg').animate({opacity: 0}, 500, function () {
+            $('#menu-bg').css('display', 'none')
+            $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
+        });
     });
 
     
@@ -54,7 +53,7 @@ $(function(){
     let scrollup = $('.scrollup')
     scrollup.on('click', function () { // if scroll up clicked
         $('html, body').animate({ // animated scroll to top in 800ms
-            scrollTop: $('#top').offset().top
+            scrollTop: 0
         }, 800);
     })
 
