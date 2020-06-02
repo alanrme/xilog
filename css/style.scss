@@ -38,7 +38,7 @@ body.dark, body.dark .content, body.dark .footer {
 	transition: 0.5s;
 	transition-property: background-color, color;
 }
-body.dark .footer { background-color: #252525; }
+body.dark .footer { background-color: #282828; }
 
 @media only screen and (max-width: 1920px) {
 	body {
@@ -282,13 +282,13 @@ nav {
 		text-decoration: none;
 		-webkit-transition: 0.5s;
 		transition: 0.5s;
-	}
-	a:hover {
-		background: rgba(255,255,255,0.2);
-		color: white;
-		text-decoration: none;
-		-webkit-transition: 0.5s;
-		transition: 0.5s;
+		&:hover {
+			background: rgba(255,255,255,0.2);
+			color: white;
+			text-decoration: none;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+		}
 	}
 
 	/* target nav logo */
@@ -296,6 +296,11 @@ nav {
 		color: white !important;
 		font-family: "Montserrat Medium", $font-stack;
 		font-size: 1.5rem;
+		svg {
+			fill: white;
+			height: 1.5em;
+			width: auto;
+		}
 	}
 
 	/* menu button for mobile */
