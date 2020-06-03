@@ -365,6 +365,11 @@ nav.awake {
 			color: white !important;
 			font-family: "Montserrat Medium", $font-stack;
 			font-size: 1.5rem;
+			svg {
+				fill: white;
+				height: 1.5em;
+				width: auto;
+			}
 		}
 	}
 }
