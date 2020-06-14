@@ -49,7 +49,7 @@ body.dark .footer { background-color: #282828; }
 	body {
 		background-image: url("../img/bg-tall.png");
 	}
-	.section { padding-left: 7vw !important; padding-right: 7vw !important; }
+	.section { padding-left: 2vw !important; padding-right: 2vw !important; }
 	.logo {
 		max-width: 24vh !important;
 		margin-top: 24vh !important;
@@ -587,7 +587,7 @@ input:checked + .slider:before {
 		position: relative;
 		// for some reason this makes .middle fill container up properly
 		img {
-			max-height: 80vh;
+			height: 80vh;
 			max-width: 100%;
 			width: auto;
 		}
