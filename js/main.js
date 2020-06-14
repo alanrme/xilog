@@ -96,7 +96,9 @@ $(function(){
     let intro; // top of content
     let nav = $('nav')
 
-    window.setInterval(function(){ // run every 250ms, put scroll events here
+    // run every 250ms, put most scroll events here
+    // more efficient than the scroll event
+    window.setInterval(function(){
         intro = $('.content').offset().top; // set top of content
         // this is in a loop so that when the screen is turned it will update with the new position
 
@@ -110,20 +112,23 @@ $(function(){
 
         // FIXED NAV
         // handles attaching nav to screen when scrolled far enough
-        if (scrollpos > 150) {
+        if (scrollpos > 200) { // after the nav is no longer visible
             if (!nav.hasClass('scrolled')) nav.addClass('scrolled');
-        } 
-        if (scrollpos < 150) {
-            if (nav.hasClass('scrolled')) nav.removeClass('scrolled sleep');
-        } 
-        if (scrollpos > intro) {
-            if (!nav.hasClass('awake')) nav.addClass('awake');
-        }
-        if (scrollpos < intro) {
-            if (nav.hasClass('awake')) {
-                nav.removeClass('awake');
-                nav.addClass('sleep');
+
+            // nest these since realistically they only run if the
+            // scroll is above 100, more efficient code
+            if (scrollpos > intro) {
+                if (!nav.hasClass('awake')) nav.addClass('awake');
             }
+            if (scrollpos < intro) {
+                if (nav.hasClass('awake')) {
+                    nav.removeClass('awake');
+                    nav.addClass('sleep');
+                }
+            }
+        } 
+        if (scrollpos < 200) {
+            if (nav.hasClass('scrolled')) nav.removeClass('scrolled sleep');
         }
-    }, 250);
+    }, 150);
 });
