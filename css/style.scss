@@ -4,7 +4,6 @@
 /* SASS VARIABLES */
 /* Fonts */
 $font-stack: "Montserrat", "Helvetica", "Arial";
-$light-font: "Montserrat Light", $font-stack;
 $primary: #1ec1c7;
 $secondary: #4e44b0;
 
@@ -65,34 +64,33 @@ body.dark .footer { background-color: #282828; }
 
 h1 {
 	font: {
-		family: "Montserrat Light", $font-stack;
-		style: normal;
+		family: $font-stack;
 		size: 4em;
+		weight: 300;
 	}
 	text-align: center;
 }
 
 h2 {
 	font: {
-		family: "Montserrat Light", $font-stack;
-		style: normal;
+		family: $font-stack;
 		size: 3em;
+		weight: 300;
 	}
 	text-align: center;
 }
 
 h3 {
 	font: {
-		family: "Montserrat Light", $font-stack;
-		style: normal;
+		family: $font-stack;
 		size: 2.5em;
+		weight: 300;
 	}
 }
 
 h4 {
 	font: {
-		family: "Montserrat Light", $font-stack;
-		style: normal;
+		family: $font-stack;
 		size: 2em;
 	}
 }
@@ -142,7 +140,7 @@ p3 {
 	text-align: left;
 	padding-top: 3em;
 	padding-bottom: 3em;
-	background-color: white;
+	background-color: #fff;
 	
 	transition: background-color 0.5s;
 }
@@ -150,7 +148,7 @@ p3 {
 .footer {
 	height: auto;
 	width: auto;
-	background: #eeeeee;
+	background: #eee;
 	padding: 3vw;
 	padding-top: 40px;
 	padding-bottom: 40px;
@@ -265,6 +263,7 @@ nav {
 	position: absolute;
 	z-index: 999;
 	width: 100%;
+	top: 0;
 	height: auto;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.35);
@@ -540,8 +539,6 @@ input:checked + .slider:before {
 	cursor: pointer;
 	-webkit-border-radius: 2em;
 	border-radius: 2em;
-	-webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
-	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	.img-container {
@@ -551,14 +548,14 @@ input:checked + .slider:before {
 		}
 		.middle { display: none }
 	}
-}
-#port-items .p-item:hover {
-	-webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
-	box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
-	-webkit-border-radius: 1em;
-	border-radius: 1em;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
+	&:hover {
+		-webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
+		box-shadow: 0 6px 18px 0 rgba(0,0,0,0.4);
+		-webkit-border-radius: 1em;
+		border-radius: 1em;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
 }
 #port-items .p-item .p-name, #port-items .p-item .p-desc {
 	display: none;
