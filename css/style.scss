@@ -44,7 +44,7 @@ body.dark .footer { background-color: #282828; }
 		background-image: url("../img/bg-med.png");
 	}
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 640px) { // mobile
 	body {
 		background-image: url("../img/bg-tall.png");
 	}
@@ -53,6 +53,7 @@ body.dark .footer { background-color: #282828; }
 		max-width: 24vh !important;
 		margin-top: 24vh !important;
 	}
+	#loader { width: 40% !important }
 	nav a { display: none !important }
 	nav .menu { display: inline-block !important }
 }
