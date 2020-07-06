@@ -20,10 +20,10 @@ $(function(){
     // if localstorage says user's last setting is dark
     if ((localStorage.getItem('mode') || 'dark') === 'dark') {
         $('body').addClass('dark'); // make the page dark
-        $(".darkmode").prop('checked', true); // check darkmode box
+        $("#darkmode").prop('checked', true); // check darkmode box
     }
 
-    $(".darkmode").on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
+    $("#darkmode").on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
         localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
         // then change it on the page too, add a "dark" class to body
         localStorage.getItem('mode') === 'dark' ? $('body').addClass('dark') : $('body').removeClass('dark')
