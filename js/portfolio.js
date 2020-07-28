@@ -2,12 +2,16 @@ $(function(){
     // PORTFOLIO
     let modal = $('#p-view'); // this is the modal for the portfolio's viewer
     $('#port-items .p-item').each(function () { // for each portfolio item
-        let img = $($(this).find('img')[0]);
         let item = $(this);
-        img.on('click', function () { // if image is clicked on
+        item.on('click', function () { // if image is clicked on
             modal.empty(); // clear modal
-            item.clone().prependTo(modal); // clone this to modal, on top of p-over
-            modal.fadeIn(); // animate modal from 0 to 1 opacity
+            
+            item.clone().find("img").attr("src", function() {
+                return this.src.replace("_m", "_c").replace("/thumbnails", "");
+            }).closest(".p-item").prependTo(modal)
+            // replace the image source with a higher resolution one
+
+            modal.fadeIn(); // fade in modal
 
             // if portfolio-overlay is clicked
             modal.on('click', function () {

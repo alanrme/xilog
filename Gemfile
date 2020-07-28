@@ -30,3 +30,5 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 # GitHub pages
 # gem "github-pages", group: :jekyll_plugins
+
+gem 'jekyll-thumbnail'
