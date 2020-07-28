@@ -589,7 +589,7 @@ input:checked + .slider:before {
 			width: auto;
 		}
 		.middle { // the thingy that appears when hovering on image
-			background-color: black;
+			background-color: rgba(0,0,0,0.5);
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -605,7 +605,7 @@ input:checked + .slider:before {
 			transition: .5s ease;
 		}
 		.middle:hover {
-			opacity: 0.8;
+			opacity: 1;
 		}
 	}
 	.p-name {
