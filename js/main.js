@@ -1,12 +1,11 @@
+// LOADER HIDE
+$(window).on("load", function() {
+    $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
+    // fade out loader, then hide
+})
+
 $(function(){
     window.scrollTo(0, 0); // scroll to top on page load
-
-    
-    // LOADER HIDE
-    window.setTimeout(function () {
-        $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
-        // fade out loader after 800ms, then hide
-    }, 800);
 
     
     // DISABLE RIGHT CLICK
