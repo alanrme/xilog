@@ -1,6 +1,7 @@
 // LOADER HIDE
 $(window).on("load", function() {
     $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
+    $('#loader').animate({opacity: 0}, 300, function () { $('#loader').hide();} );
     // fade out loader, then hide
 })
 
@@ -36,12 +37,12 @@ $(function(){
             if(!$(this).is('menu')) $(this).clone().appendTo($('#menu')); // don't clone the menu button though!
         })
 
-        $('#menu-bg').css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 500);
+        $('#menu-bg').css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 300);
         // fade in menu
     });
     $('.m-close, #menu-bg').on("click", function(e){ // when close button clicked
         // and fade out menu
-        $('#menu-bg').animate({opacity: 0}, 500, function () {
+        $('#menu-bg').animate({opacity: 0}, 300, function () {
             $('#menu-bg').css('display', 'none')
             $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
         });
@@ -103,9 +104,9 @@ $(function(){
 
         // SHOW/HIDE SCROLL UP BUTTON
         if (scrollpos > intro) { // if user scrolls below intro, show button
-            scrollup.fadeIn(500)
+            scrollup.fadeIn(300)
         } else { // scroll above, hide button
-            scrollup.fadeOut(500)
+            scrollup.fadeOut(300)
         }
 
 
