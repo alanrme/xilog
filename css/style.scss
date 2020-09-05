@@ -676,7 +676,7 @@ body.dark .slide i {
 	background-color: #aaa;
 	border-radius: 999px;
 	display: inline-block;
-	transition: background-color 0.5s ease;
+	transition: background-color 0.3s ease;
 }
 body.dark .dot {
 	background-color: #eee;
@@ -685,6 +685,7 @@ body.dark .dot {
 #mailh.active, #mailh:hover { background-color: #e94843; }
 #discordh.active, #discordh:hover { background-color: #7289DA; }
 #twitterh.active, #twitterh:hover { background-color: #1DA1F2; }
+#githubh.active, #githubh:hover { background-color: #24292e; border: 2px solid #eee; }
 
 
 
@@ -768,11 +769,11 @@ button, a.button, input[type="button"] {
 
 
 
-a .twitter, a .mail, a .discord {
+a .social{
 	text-shadow: 0px 0px 0px rgba(0,0,0,0.2);
 	color: #aaaaaa;
 	-webkit-transition: 0.5s;
-	transition: 0.5s;
+	transition: 0.3s;
 }
 a .twitter:hover {
 	text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
@@ -785,6 +786,10 @@ a .mail:hover {
 a .discord:hover {
 	text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 	color: #7289DA;
+}
+a .github:hover {
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+	color: #24292e;
 }
 
 
