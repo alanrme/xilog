@@ -9,6 +9,10 @@
         <img src="/img/logo-small.jpg" alt="Logo" class="logo">
     </a>
     <h1 id="xilogheader"> {{ page.title }} </h1>
-    <div class="chevron-down blink"></div>
-    <div class="chevron-down blink" style="margin-top: -1em; animation-delay: 0.1s;"></div>
+    {% if page.url == "/404.html" %}
+        <div class="cross blink"></div>
+    {% else %}
+        <div class="chevron-down blink"></div>
+        <div class="chevron-down blink" style="margin-top: -1em; animation-delay: 0.1s;"></div>
+    {% endif %}
 </div>
