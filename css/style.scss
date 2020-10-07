@@ -315,6 +315,34 @@ nav {
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
 		}
+
+		&#donate { /*donate button*/
+			float: right;
+			i { /*fontawesome icon*/
+				opacity: 0.5;
+				transition: 0.5s opacity;
+			}
+			.text { /*donate button text hidden until hover*/
+				/*spans won't transform unless they're turned into a block*/
+				display: inline-block;
+				width: 0;
+				transform: scaleX(0);
+				transition: 0.5s;
+				transition-property: transform, width;
+			}
+			&:hover {
+				i {
+					opacity: 1;
+					transition: 0.5s opacity;
+				}
+				.text {
+					width: 3.5em;
+					transform: scaleX(1);
+					transition: 0.5s;
+					transition-property: transform, width;
+				}
+			}
+		}
 	}
 
 	/* target nav logo */
