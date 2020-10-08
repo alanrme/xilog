@@ -88,6 +88,7 @@ $(function(){
               var diff = scrollpos - initY
               var ratio = Math.round((diff / height) * 350)
               $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
+              $(".hero").css('margin-bottom', parseInt(-ratio*2) + 'px')
             }
         })
     });
