@@ -86,8 +86,8 @@ $(function(){
             var visible = isInViewport(this)
             if(visible) {
               var diff = scrollpos - initY
-              var ratio = Math.round((diff / height) * 500)
-              $(this).css('background-position','center ' + parseInt(-(ratio * 1.5)) + 'px')
+              var ratio = Math.round((diff / height) * 350)
+              $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
             }
         })
     });
