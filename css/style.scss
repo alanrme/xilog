@@ -759,7 +759,33 @@ body.dark .dot {
 	to { stroke-dashoffset: 0 }
 }
 
-
+#loader-bar {
+	overflow: hidden;
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	.bar {
+		height: 100%;
+		width: 100%;
+		background-color: white;
+		margin-left: -100%;
+		animation: 0.5s loadingBar infinite;
+	}
+}
+@-webkit-keyframes loadingBar {
+	from { margin-left: -100%; }
+	to { margin-left: 100% }
+}
+@-moz-keyframes loadingBar {
+	from { margin-left: -100%; }
+	to { margin-left: 100% }
+}
+@keyframes  loadingBar {
+	from { margin-left: -100%; }
+	to { margin-left: 100% }
+}
 
 
 
