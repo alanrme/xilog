@@ -55,6 +55,7 @@ body.dark .footer { background-color: #282828; }
 	#loader { width: 40% !important }
 	nav a { display: none !important }
 	nav .menu { display: inline-block !important }
+	.content { background-size: contain !important; }
 }
 
 
@@ -175,7 +176,9 @@ p3 {
 	text-align: left;
 	padding-top: 3em;
 	padding-bottom: 3em;
-	background-color: #fff;
+	background: url("../img/line.png") no-repeat, #fff;
+	background-size: 70%;
+	background-position: left bottom;
 	
 	transition: background-color 0.5s;
 }
