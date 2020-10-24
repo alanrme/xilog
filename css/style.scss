@@ -4,6 +4,7 @@
 /* SASS VARIABLES */
 /* Fonts */
 $font-stack: "Montserrat", "Helvetica", "Arial";
+
 $primary: #1ec1c7;
 $secondary: #4e44b0;
 
@@ -43,7 +44,7 @@ body.dark .footer { background-color: #282828; }
 	body {
 		background-image: url("../img/bg-med.png");
 	}
-	.content { background-image: url("../img/line-small.png") !important; }
+	/* .content { background-image: url("../img/line-small.png") !important; } */
 }
 @media only screen and (max-width: 640px) { // mobile
 	body {
@@ -177,9 +178,11 @@ p3 {
 	text-align: left;
 	padding-top: 3em;
 	padding-bottom: 3em;
+	/* XILOG LINE (don't forget to uncomment in media rules too)
 	background: url("../img/line.png") no-repeat, #fff;
 	background-size: 70%;
 	background-position: left bottom;
+	*/
 	
 	transition: background-color 0.5s;
 }
