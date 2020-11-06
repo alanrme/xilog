@@ -6,10 +6,9 @@ $(function(){
         item.on('click', function () { // if image is clicked on
             modal.empty(); // clear modal
             
-            item.clone().find("img").attr("src", function() {
-                return this.src.replace("_m", "_c").replace("/thumbnails", "");
-            }).closest(".p-item").prependTo(modal)
-            // replace the image source with a higher resolution one
+            
+            // clone item and replace the image source with a higher resolution one, then add to modal
+            $(item.clone().prop("outerHTML").replace(/_m/g, "_c").replace(/\/thumbnails/g, "")).prependTo(modal)
 
             modal.fadeIn(); // fade in modal
 
