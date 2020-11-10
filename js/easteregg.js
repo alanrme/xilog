@@ -1,9 +1,8 @@
 function easteregg(x) {
     // var for compatibility
-    var audio = new Audio('../audio/easteregg.wav');
+    var audio = new Audio('../audio/easteregg.mp3');
     audio.play();
-    $('body').css('animation', 'none').css('animation', 'shake 0.5s')
-    setTimeout(function() { x.fadeIn() }, 2000);
+    x.delay(1500).fadeIn(3000)
 }
 
 $(function(){
