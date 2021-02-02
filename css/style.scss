@@ -797,7 +797,7 @@ body.dark .dot {
 	to { stroke-dashoffset: 0 }
 }
 
-#loader-line {
+#loader-line, #loader-line2 {
 	z-index: 9999;
 	stroke: url(#xilog);
 	stroke-dasharray: 2000;
