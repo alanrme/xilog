@@ -10,6 +10,9 @@ $(function(){
     $('#easteregg-content #close').click(function() { // when close button clicked
         x.fadeOut()
     })
+    $('#easteregg-content #loader-enable').click(function() { // when loader button clicked
+        $('#loader-bg').show().css("opacity", 1)
+    })
 
     //CLICK-TRIGGER EASTEREGG
     $('#trigger').click(function() { // when trigger clicked
