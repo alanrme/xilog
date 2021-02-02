@@ -172,14 +172,17 @@ p3 {
 	margin: auto;
 	margin-bottom: 3em;
 	h2 {
+		/* L shaped border
 		border-image: linear-gradient(to right, #1ec1c7, #4e44b0) 1 100%;
 		border-style: solid;
 		border-width: 0px 0px 5px 5px;
 		border-image-slice: 1;
+		width: 50%;
+		*/
+		border-left: 5px solid #1ec1c7;
 		transform: skew(-10deg);
 		text-align: left;
 		padding: 5px 15px;
-		width: 50%;
 		font-weight: 900;
 	}
 }
