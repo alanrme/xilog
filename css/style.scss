@@ -171,6 +171,16 @@ p3 {
 	padding-right: 7vw;
 	margin: auto;
 	margin-bottom: 3em;
+	h2 {
+		border-image: linear-gradient(to right, #1ec1c7, #4e44b0) 1 100%;
+		border-style: solid;
+		border-width: 0px 0px 5px 5px;
+		border-image-slice: 1;
+		transform: skew(-10deg);
+		text-align: left;
+		padding: 5px 15px;
+		width: 50%;
+	}
 }
 
 .content {
