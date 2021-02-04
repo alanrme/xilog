@@ -9,6 +9,17 @@
         transform: scaleX(1);
     }
 }
+*/
+
+.aos { transition-duration: 0.4s; }
+
+[data-aos="fadein"] {
+    opacity: 0;
+    transition-property: opacity;
+    &.aos-animate {
+        opacity: 1;
+    }
+}
 
 [data-aos="expandy"] {
     transform: scaleY(0);
@@ -17,7 +28,6 @@
         transform: scaleY(1);
     }
 }
-*/
 
 [data-aos="width"] {
     width: 0%;
