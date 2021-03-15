@@ -17,11 +17,6 @@ html {
 @media screen and (min-width: 1600px) { html { font-size: 20px; } }
 @media screen and (min-width: 2000px) { html { font-size: 24px; } }
 body {
-	background-image: url("../img/bg.png");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center 0px;
-	background-size: cover;
 	background-color: #fff;
 	color: black;
 	margin: 0;
@@ -40,14 +35,29 @@ body.dark, body.dark .content, body.dark .footer {
 }
 body.dark .footer { background-color: #282828; }
 
+#background {
+    z-index: -2;
+	position: absolute;
+    height: 100%;
+    width: 100%;
+	background-image: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center 0px;
+	background-size: cover;
+
+	transform: scale(1);
+	transition: transform 0.7s cubic-bezier(0.385, 0, 0, 1.000);
+}
+
 @media only screen and (max-width: 1920px) {
-	body {
+	#background {
 		background-image: url("../img/bg-med.png");
 	}
 	/* .content { background-image: url("../img/line-small.png") !important; } */
 }
 @media only screen and (max-width: 640px) { // mobile
-	body {
+	#background {
 		background-image: url("../img/bg-tall.png");
 	}
 	.section { padding-left: 2vw !important; padding-right: 2vw !important; }
@@ -125,6 +135,7 @@ p3 {
 
 
 .hero {
+	z-index: -1;
 	height: 100vh;
 	position: relative;
 	display: flex;
@@ -133,6 +144,25 @@ p3 {
 	justify-content: center;
 	text-align: center;
 	color:white !important;
+	/* for the "Xilog" letter animation on load */
+	#xilogheader .letter {
+		display: inline-block; // lets transform scale work
+		opacity: 0;
+		transform: scale(2);
+		&.animated {
+			animation: 0.3s hero-letters ease-out forwards;
+		}
+	}
+}
+@keyframes hero-letters {
+	0% {
+		opacity: 0;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 .logo {
