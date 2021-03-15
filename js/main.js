@@ -1,8 +1,20 @@
 // LOADER HIDE
 $(window).on("load", function() {
+    // fade out loader, then hide
     $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
     $('#loader').animate({opacity: 0}, 300, function () { $('#loader').hide();} );
-    // fade out loader, then hide
+
+    // "Xilog" hero text animation
+    // wrap every letter in a span
+    var textWrapper = $("#xilogheader");
+    console.log(textWrapper.html())
+    textWrapper.html(textWrapper.html().replace(/\S/g, "<span class='letter'>$&</span>"));
+    $("#xilogheader span").each((i, e) => {
+        $(e).css("animation-delay", `${i*0.1}s`).addClass("animated");
+    })
+
+    // animate background zoom in - doesn't work right with parallax scroll
+    // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
 })
 
 $(function(){
@@ -13,7 +25,6 @@ $(function(){
     $(".norightclick").on("contextmenu",function(e){
         return false;
     });
-
 
 
     // DARK MODE
@@ -78,13 +89,12 @@ $(function(){
 
         // parallax scroll
         $('.parallax').each(function(index, element) {
-            var initY = $(this).offset().top
-            var height = $(this).height()
-            var endY  = initY + $(this).height()
+            var initY = this.offsetTop
+            var height = this.offsetHeight
         
             // Check if the element is in the viewport.
             var visible = isInViewport(this)
-            if(visible) {
+            if (visible) {
               var diff = scrollpos - initY
               var ratio = Math.round((diff / height) * 350)
               $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
