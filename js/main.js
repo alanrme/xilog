@@ -95,10 +95,10 @@ $(function(){
             // Check if the element is in the viewport.
             var visible = isInViewport(this)
             if (visible) {
-              var diff = scrollpos - initY
-              var ratio = Math.round((diff / height) * 350)
-              $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
-              $(".hero").css('margin-bottom', parseInt(-ratio*2) + 'px')
+                var diff = scrollpos - initY
+                var ratio = Math.round((diff / height) * 350)
+                $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
+                $(".hero").css('transform', `translateY(${parseInt(ratio*0.5)}px)`)
             }
         })
     });
