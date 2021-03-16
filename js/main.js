@@ -1,23 +1,47 @@
+// more efficient than jQuery AJAX
+var _ = (selector, all) => {
+    if (all) return document.querySelectorAll(selector);
+    else return document.querySelector(selector);
+};
+
+
 // LOADER HIDE
-$(window).on("load", function() {
+window.onload = () => {
     // fade out loader, then hide
-    $('#loader-bg').animate({opacity: 0}, 300, function () { $('#loader-bg').hide();} );
-    $('#loader').animate({opacity: 0}, 300, function () { $('#loader').hide();} );
+    _('#loader-bg').style.opacity = 0;
+    _('#loader').style.opacity = 0;
+    setTimeout(() => {
+        _('#loader-bg').style.display = 'none';
+        _('#loader').style.display = 'none';
+    }, 300);
 
     // "Xilog" hero text animation
     // wrap every letter in a span
-    var textWrapper = $("#xilogheader");
-    console.log(textWrapper.html())
-    textWrapper.html(textWrapper.html().replace(/\S/g, "<span class='letter'>$&</span>"));
-    $("#xilogheader span").each((i, e) => {
-        $(e).css("animation-delay", `${i*0.1}s`).addClass("animated");
-    })
+    var textWrapper = _("#xilogheader");
+    textWrapper.innerHTML = textWrapper.innerHTML.replace(/\S/g, "<span class='letter'>$&</span>");
+    headerSpans = _("#xilogheader span", true)
+    for (var i = 0; i < headerSpans.length; i++) {
+        headerSpans[i].style.animationDelay = `${i*0.1}s`;
+        headerSpans[i].classList.add('animated');
+    }
 
-    // animate background zoom in - doesn't work right with parallax scroll
+    // animate background zoom in - doesn't work right with parallax scroll so disabled
     // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
-})
+}
 
-$(function(){
+
+// alternative to jQuery document ready
+function ready(callback) {
+    // in case the document is already rendered
+    if (document.readyState!='loading') callback();
+    // modern browsers
+    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    // IE <= 8
+    else document.attachEvent('onreadystatechange', function(){
+        if (document.readyState=='complete') callback();
+    });
+}
+ready(() => {
     window.scrollTo(0, 0); // scroll to top on page load
 
     
@@ -29,43 +53,49 @@ $(function(){
 
     // DARK MODE
     // if localstorage says user's last setting is dark
+    darkToggle = $("#darkmode");
+    body = $(document.body)
     if ((localStorage.getItem('mode') || 'dark') === 'dark') {
-        $('body').addClass('dark'); // make the page dark
-        $("#darkmode").prop('checked', true); // check darkmode box
+        body.addClass('dark'); // make the page dark
+        darkToggle.prop('checked', true); // check darkmode box
     }
-
-    $("#darkmode").on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
+    darkToggle.on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
         localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
         // then change it on the page too, add a "dark" class to body
-        localStorage.getItem('mode') === 'dark' ? $('body').addClass('dark') : $('body').removeClass('dark')
+        localStorage.getItem('mode') === 'dark' ? body.addClass('dark') : body.removeClass('dark')
     })
     
 
 
     //MOBILE MENU
+    menuBg = $('#menu-bg')
     $('.menu').on("click", function(e){
         $('nav a').each(function () { // for each nav item on desktop, clone that to mobile menu
             if(!$(this).is('menu')) $(this).clone().appendTo($('#menu')); // don't clone the menu button though!
         })
 
-        $('#menu-bg').css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 300);
+        menuBg.css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 300);
         // fade in menu
     });
     $('.m-close, #menu-bg').on("click", function(e){ // when close button clicked
         // and fade out menu
-        $('#menu-bg').animate({opacity: 0}, 300, function () {
-            $('#menu-bg').css('display', 'none')
+        menuBg.animate({opacity: 0}, 300, function () {
+            menuBg.css('display', 'none')
             $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
         });
     });
 
     
     // SCROLL UP BUTTON
-    let scrollup = $('.scrollup')
+    // This looks like it's defined to be used once but it is used more
+    // in the scroll-position loop
+    scrollup = $('.scrollup');
     scrollup.on('click', function () { // if scroll up clicked
-        $('html, body').animate({ // animated scroll to top in 800ms
-            scrollTop: 0
-        }, 800);
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' // smooth scroll
+        });
     })
 
     
@@ -73,11 +103,11 @@ $(function(){
     function isInViewport(node) {
         var rect = node.getBoundingClientRect()
         return (
-          (rect.height > 0 || rect.width > 0) &&
-          rect.bottom >= 0 &&
-          rect.right >= 0 &&
-          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+            (rect.height > 0 || rect.width > 0) &&
+            rect.bottom >= 0 &&
+            rect.right >= 0 &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.left <= (window.innerWidth || document.documentElement.clientWidth)
         )
     }
 
@@ -89,14 +119,10 @@ $(function(){
 
         // parallax scroll
         $('.parallax').each(function(index, element) {
-            var initY = this.offsetTop
-            var height = this.offsetHeight
-        
             // Check if the element is in the viewport.
-            var visible = isInViewport(this)
-            if (visible) {
-                var diff = scrollpos - initY
-                var ratio = Math.round((diff / height) * 350)
+            if (isInViewport(this)) {
+                var diff = scrollpos - this.offsetTop
+                var ratio = Math.round((diff / this.offsetHeight) * 350)
                 $(this).css('background-position','center ' + parseInt(-ratio) + 'px')
                 $(".hero").css('transform', `translateY(${parseInt(ratio*0.5)}px)`)
             }
@@ -104,14 +130,15 @@ $(function(){
     });
 
 
-    let intro; // top of content
-    let nav = $('nav')
 
-    // run every 250ms, put most scroll events here
+    let intro; // top of content
+    let nav = $('nav');
+    // run every 150ms, put most scroll events here
     // more efficient than the scroll event
     window.setInterval(function(){
         intro = $('.content').offset().top; // set top of content
-        // this is in a loop so that when the screen is turned it will update with the new position
+        // ^ this is in a loop so that when the screen is turned it
+        // will update with the new position
 
         // SHOW/HIDE SCROLL UP BUTTON
         if (scrollpos > intro) { // if user scrolls below intro, show button

@@ -21,6 +21,16 @@
     }
 }
 
+[data-aos="fadein-expand"] {
+    opacity: 0;
+    letter-spacing: -0.05em;
+    transition-property: opacity, letter-spacing;
+    &.aos-animate {
+        opacity: 1;
+        letter-spacing: 0;
+    }
+}
+
 [data-aos="expandy"] {
     transform: scaleY(0);
     transition-property: transform;
