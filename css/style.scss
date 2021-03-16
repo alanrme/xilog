@@ -778,6 +778,8 @@ body.dark .dot {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	transition: 0.3s ease forwards;
+	transition-property: opacity;
 
 	p3 {
 		color: white;
@@ -803,7 +805,7 @@ body.dark .dot {
 	to { opacity: 1; }
 }
 #loader {
-	z-index: 999;
+	z-index: 99999;
 	fill: transparent;
 	width: 30vh;
 	margin-bottom: -30vh; /* put this over the logo below it */
@@ -813,6 +815,8 @@ body.dark .dot {
 	stroke-dasharray: 1255;
 	-webkit-animation: drawlogo 1000ms linear infinite;
 	animation: drawlogo 1000ms linear infinite;
+	transition: 0.3s ease-in-out forwards;
+	transition-property: opacity;
 }
 @-webkit-keyframes drawlogo {
 	from { stroke-dashoffset: 2510 }

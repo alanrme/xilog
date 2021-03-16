@@ -14,7 +14,6 @@ window.setInterval(function(){
         if(isInViewport(element)) {
             delay = item.data("aos-delay");
             if(delay) {
-                console.log(delay)
                 item.css("transition-delay", `0.${delay}s`)
                 item.addClass("aos-animate")
             }
