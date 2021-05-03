@@ -10,6 +10,7 @@ $secondary: #4e44b0;
 
 
 html {
+	font-family: $font-stack;
 	font-size: 13px;
 }
 @media screen and (min-width: 800px) { html { font-size: 15px; } }
@@ -128,6 +129,10 @@ p3 {
 		family: $font-stack;
 		size: 1.1em;
 	}
+}
+
+span {
+	font-family: $font-stack;
 }
 
 
@@ -266,6 +271,12 @@ hr.divider {
 }
 body.dark .divider {
 	background: #eee;
+}
+
+.badge {
+	font-size: 0.6em;
+	border-radius: 0;
+	background-color: rgba(127, 127, 127, 0.5);
 }
 
 
