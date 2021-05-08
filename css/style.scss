@@ -456,6 +456,8 @@ nav.awake {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	opacity: 0;
+	transition: 0.3s opacity;
 
 	/* target mobile menu */
 	#menu {

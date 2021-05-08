@@ -41,49 +41,61 @@ function ready(callback) {
         if (document.readyState=='complete') callback();
     });
 }
+
 ready(() => {
     window.scrollTo(0, 0); // scroll to top on page load
 
     
     // DISABLE RIGHT CLICK
-    $(".norightclick").on("contextmenu",function(e){
-        return false;
-    });
+    noRightClick = _(".norightclick", true)
+    for (var i = 0; i < noRightClick.length; i++) {
+        noRightClick[i].addEventListener('contextmenu', event => event.preventDefault());
+    }
 
 
     // DARK MODE
     // if localstorage says user's last setting is dark
-    darkToggle = $("#darkmode");
-    body = $(document.body)
+    darkToggle = _("#darkmode");
     if ((localStorage.getItem('mode') || 'dark') === 'dark') {
-        body.addClass('dark'); // make the page dark
-        darkToggle.prop('checked', true); // check darkmode box
+        document.body.classList.add('dark'); // make the page dark
+        darkToggle.checked = true; // check darkmode box
     }
-    darkToggle.on("click", function(e){ // if dark/light toggle is clicked, set it in localstorage
+    darkToggle.addEventListener("click", () => { // if dark/light toggle is clicked, set it in localstorage
         localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
         // then change it on the page too, add a "dark" class to body
-        localStorage.getItem('mode') === 'dark' ? body.addClass('dark') : body.removeClass('dark')
+        localStorage.getItem('mode') === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark')
     })
     
 
 
     //MOBILE MENU
-    menuBg = $('#menu-bg')
-    $('.menu').on("click", function(e){
-        $('nav a').each(function () { // for each nav item on desktop, clone that to mobile menu
-            if(!$(this).is('menu')) $(this).clone().appendTo($('#menu')); // don't clone the menu button though!
-        })
+    menuBg = _('#menu-bg')
+    _('.menu').addEventListener("click", () => {
+        // when clicked clone all hidden navbar items to the nav menu
+        navItems = _("nav a", true)
+        for (var i = 0; i < navItems.length; i++) {
+            if(!navItems[i].classList.contains('menu')) { // don't clone the menu button though!
+                e = navItems[i].cloneNode(true);
+                _('#menu').appendChild(e);
+            }
+        }
 
-        menuBg.css({'display': 'flex', opacity: 0}).animate({opacity: 1}, 300);
-        // fade in menu
+        // fade in menu - delay because if it wasn't there the opacity transition didn't work
+        menuBg.style.display = "flex";
+        setTimeout(() => { menuBg.style.opacity = 1; }, 2);
     });
-    $('.m-close, #menu-bg').on("click", function(e){ // when close button clicked
-        // and fade out menu
-        menuBg.animate({opacity: 0}, 300, function () {
-            menuBg.css('display', 'none')
+    closeTriggers = _('.m-close, #menu-bg', true)
+    for (var i = 0; i < closeTriggers.length; i++) {
+        func = () => {
+            menuBg.style.display = "none";
             $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
-        });
-    });
+            menuBg.removeEventListener('transitionend',func); // remove listener so it won't trigger on fadein
+        }
+        closeTriggers[i].addEventListener("click", function(e) { // when close button clicked
+            menuBg.style.opacity = 0;
+            menuBg.addEventListener('transitionend', func, false);
+        })
+    }
 
     
     // SCROLL UP BUTTON
