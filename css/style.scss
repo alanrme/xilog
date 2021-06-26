@@ -3,7 +3,7 @@
 
 /* SASS VARIABLES */
 /* Fonts */
-$font-stack: "Montserrat", "Helvetica", "Arial";
+$font-stack: "Poppins", "Helvetica", "Arial";
 
 $primary: #1ec1c7;
 $secondary: #4e44b0;
@@ -18,8 +18,8 @@ html {
 @media screen and (min-width: 1600px) { html { font-size: 20px; } }
 @media screen and (min-width: 2000px) { html { font-size: 24px; } }
 body {
-	background-color: #fff;
-	color: black;
+	background-color: black;
+	color: white;
 	margin: 0;
 	padding: 0;
 	width: auto;
@@ -28,13 +28,6 @@ body {
 	transition: 0.5s;
 	transition-property: background-color, color;
 }
-body.dark, body.dark .content, body.dark .footer {
-	background-color: #222;
-	color: #eee;
-	transition: 0.5s;
-	transition-property: background-color, color;
-}
-body.dark .footer { background-color: #282828; }
 
 #background {
     z-index: -2;
@@ -62,8 +55,8 @@ body.dark .footer { background-color: #282828; }
 		background-image: url("../img/bg-tall.png");
 	}
 	.section { padding-left: 2vw !important; padding-right: 2vw !important; }
-	.logo {
-		max-width: 24vh !important;
+	.gh-projects.card-columns {
+		column-count: 1 !important;
 	}
 	#loader { width: 40% !important }
 	nav a { display: none !important }
@@ -98,7 +91,7 @@ h3 {
 	font: {
 		family: $font-stack;
 		size: 2.5em;
-		weight: 300;
+		weight: 500;
 	}
 }
 
@@ -106,7 +99,7 @@ h4 {
 	font: {
 		family: $font-stack;
 		size: 2em;
-		weight: 300;
+		weight: 500;
 	}
 }
 
@@ -144,12 +137,14 @@ span {
 	height: 100vh;
 	position: relative;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+	padding: 1em 2em;
 	color:white !important;
 	/* for the "Xilog" letter animation on load */
+	.logo {
+		width: 50%;
+		justify-self: left;
+		align-self: flex-end;
+	}
 	#xilogheader .letter {
 		display: inline-block; // lets transform scale work
 		opacity: 0;
@@ -157,6 +152,14 @@ span {
 		&.animated {
 			animation: 0.3s hero-letters ease-out forwards;
 		}
+	}
+	.line {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 0.2em;
+		background: linear-gradient(90deg, $primary, $secondary)
 	}
 }
 @keyframes hero-letters {
@@ -169,7 +172,7 @@ span {
 		transform: scale(1);
 	}
 }
-
+/*
 .logo {
 	display: block;
 	width: auto;
@@ -190,6 +193,7 @@ span {
 		-webkit-border-radius: 30%;
 	}
 }
+*/
 
 
 .chevron-down {
@@ -205,7 +209,7 @@ span {
 	padding-left: 7vw;
 	padding-right: 7vw;
 	margin: auto;
-	margin-bottom: 3em;
+	margin-bottom: 5em;
 	h2 {
 		/* L shaped border
 		border-image: linear-gradient(to right, #1ec1c7, #4e44b0) 1 100%;
@@ -214,8 +218,8 @@ span {
 		border-image-slice: 1;
 		width: 50%;
 		*/
-		border-left: 5px solid #1ec1c7;
-		transform: skew(-10deg);
+		border: solid #1ec1c7;
+		border-width: 0 0 0 5px;
 		text-align: left;
 		padding: 5px 15px;
 		font-weight: 900;
@@ -227,26 +231,22 @@ span {
 	text-align: left;
 	padding-top: 3em;
 	padding-bottom: 3em;
-	background-color: #fff;
+	background-color: black;
 	/* XILOG LINE (don't forget to uncomment in media rules too)
 	background: url("../img/line.png") no-repeat, #fff;
 	background-size: 70%;
 	background-position: left bottom;
 	*/
-	
-	transition: background-color 0.5s;
 }
 
 .footer {
 	height: auto;
 	width: auto;
-	background: #eee;
+	background: #111;
 	padding: 3vw;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	text-align: center;
-	
-	transition: background-color 0.5s;
 }
 
 .centered {
@@ -268,9 +268,6 @@ hr.divider {
 	-webkit-animation: animatedgradient 5s ease infinite;
 	-moz-animation: animatedgradient 5s ease infinite;
 	animation: animatedgradient 5s ease infinite;
-}
-body.dark .divider {
-	background: #eee;
 }
 
 .badge {
@@ -434,13 +431,9 @@ nav {
 /* the fixed nav bar for when the user scrolls */
 nav.scrolled {
 	position: fixed;
-	background: linear-gradient(120deg, $primary, $secondary);
-	background-size: 200% 200%;
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(3px);
 	transform: translateY(-100%);
-	
-	-webkit-animation: animatedgradient 10s ease infinite;
-	-moz-animation: animatedgradient 10s ease infinite;
-	animation: animatedgradient 10s ease infinite;
 }
 nav.sleep {	transition: transform 0.5s; }
 nav.awake {
@@ -519,22 +512,14 @@ nav.awake {
 
 /* progress bar background */
 .progress {
-	height: 2em;
-	border-radius: 999px
-}
-body.dark .progress {
-	background: #444;
+	height: 1em;
+	border-radius: 0;
+	background: #222;
 }
 /* progress bar filled part */
 .progress-bar {
-	height: 2em;
-	border-radius: 999px;
-	background: linear-gradient(120deg, $primary, $secondary);
-	background-size: 200% 200%;
-	
-	-webkit-animation: animatedgradient 5s ease infinite;
-	-moz-animation: animatedgradient 5s ease infinite;
-	animation: animatedgradient 5s ease infinite;
+	height: 1em;
+	background: white;
 
 	/* progress bar filled part text */
 	span {
@@ -542,8 +527,42 @@ body.dark .progress {
 		font-size: 1.4rem;
 	}
 }
-.p-bars .col-md-6 p {
-	margin-bottom: 0;
+.p-bars .col {
+	p { margin-bottom: 0; }
+}
+
+
+
+
+
+.gh-projects.card-columns {
+	column-count: 2;
+
+	.card {
+		/*
+		&:after {
+			border-right: 0.2rem solid white;
+			border-bottom: 0.2rem solid white;
+			width: 1.5rem; height: 1.5rem;
+			transform: rotate(45deg);
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			right: 0;
+			transition: 0.3s;
+		}
+		&:hover:after {
+			opacity: 0.2;
+			right: 0.5em;
+		}
+		*/
+	}
+}
+.card {
+	border-radius: 0;
+	background-color: #111;
+	padding: 1em 1.5em;
+	margin-bottom: 1.25em !important;
 }
 
 
@@ -755,9 +774,7 @@ input:checked + .slider:before {
 	display: none;
 	position: relative;
 	text-align: center;
-}
-body.dark .slide i {
-	color: #eee;
+	i { color: white }
 }
 
 /* The dots/bullets/indicators */
@@ -766,19 +783,16 @@ body.dark .slide i {
 	height: 25px;
 	width: 45px;
 	margin: 0 2px;
-	background-color: #aaa;
+	background-color: white;
 	border-radius: 999px;
 	display: inline-block;
 	transition: background-color 0.3s ease;
-}
-body.dark .dot {
-	background-color: #eee;
 }
 
 #mailh.active, #mailh:hover { background-color: #e94843; }
 #discordh.active, #discordh:hover { background-color: #7289DA; }
 #twitterh.active, #twitterh:hover { background-color: #1DA1F2; }
-#githubh.active, #githubh:hover { background-color: #24292e; border: 2px solid #eee; }
+#githubh.active, #githubh:hover { background-color: #24292e; border: 2px solid white; }
 
 
 
@@ -903,9 +917,9 @@ button, a.button, input[type="button"] {
 
 a .social{
 	text-shadow: 0px 0px 0px rgba(0,0,0,0.2);
-	color: #aaaaaa;
-	-webkit-transition: 0.5s;
-	transition: 0.3s;
+	color: white;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
 }
 a .twitter:hover {
 	text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
