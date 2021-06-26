@@ -9,14 +9,15 @@ var _ = (selector, all) => {
 window.onload = () => {
     // fade out loader, then hide
     _('#loader-bg').style.opacity = 0;
-    _('#loader').style.opacity = 0;
+    //_('#loader').style.opacity = 0;
     setTimeout(() => {
         _('#loader-bg').style.display = 'none';
-        _('#loader').style.display = 'none';
+        //_('#loader').style.display = 'none';
     }, 300);
 
     // "Xilog" hero text animation
     // wrap every letter in a span
+    /*
     var textWrapper = _("#xilogheader");
     textWrapper.innerHTML = textWrapper.innerHTML.replace(/\S/g, "<span class='letter'>$&</span>");
     headerSpans = _("#xilogheader span", true)
@@ -24,6 +25,7 @@ window.onload = () => {
         headerSpans[i].style.animationDelay = `${i*0.1}s`;
         headerSpans[i].classList.add('animated');
     }
+    */
 
     // animate background zoom in - doesn't work right with parallax scroll so disabled
     // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
@@ -55,6 +57,7 @@ ready(() => {
 
     // DARK MODE
     // if localstorage says user's last setting is dark
+    /*
     darkToggle = _("#darkmode");
     if ((localStorage.getItem('mode') || 'dark') === 'dark') {
         document.body.classList.add('dark'); // make the page dark
@@ -65,6 +68,7 @@ ready(() => {
         // then change it on the page too, add a "dark" class to body
         localStorage.getItem('mode') === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark')
     })
+    */
     
 
 
