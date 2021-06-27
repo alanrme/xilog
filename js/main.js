@@ -15,6 +15,9 @@ window.onload = () => {
         //_('#loader').style.display = 'none';
     }, 300);
 
+    // set vh property to the true viewport height to fix it on mobile browsers
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+
     // "Xilog" hero text animation
     // wrap every letter in a span
     /*
