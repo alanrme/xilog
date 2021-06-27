@@ -515,7 +515,7 @@ nav.awake {
 .progress {
 	height: 1em;
 	border-radius: 0;
-	background: #222;
+	background: #333;
 }
 /* progress bar filled part */
 .progress-bar {
@@ -540,23 +540,16 @@ nav.awake {
 	column-count: 2;
 
 	.card {
-		/*
-		&:after {
-			border-right: 0.2rem solid white;
-			border-bottom: 0.2rem solid white;
-			width: 1.5rem; height: 1.5rem;
-			transform: rotate(45deg);
-			position: absolute;
-			opacity: 0;
-			top: 0;
-			right: 0;
+		h4:after {
+			content: ">";
+			opacity: 0.2;
+			margin-left: 0.1em;
 			transition: 0.3s;
 		}
-		&:hover:after {
-			opacity: 0.2;
-			right: 0.5em;
+		&:hover h4:after {
+			opacity: 0.5;
+			margin-left: 0.4em;
 		}
-		*/
 	}
 }
 .card {

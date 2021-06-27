@@ -31,6 +31,16 @@
     }
 }
 
+[data-aos="fadein-up"] {
+    opacity: 0;
+    transform: translateY(1em);
+    transition-property: opacity, transform;
+    &.aos-animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 [data-aos="expandy"] {
     transform: scaleY(0);
     transition-property: transform;
