@@ -541,6 +541,14 @@ nav.awake {
 	column-count: 2;
 
 	.card {
+		font-size: 0.8rem;
+		.stars {
+			position: absolute;
+			top: 0.8em;
+			right: 1em;
+			opacity: 0.6;
+			font-size: 1.2em;
+		}
 		h4:after {
 			content: ">";
 			opacity: 0.2;
