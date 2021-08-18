@@ -4,146 +4,146 @@ title: Xilog
 ---
 
 <div class="section" id="intro">
-    <div class="container">
-        <h2 class="aos" data-aos="fadein-expand"> ABOUT </h2>
-
-        <h4 class="aos" data-aos="fade">
-            Full stack developer and nerd.
-        </h4>
-    </div>
+	<div class="container">
+		<h2 class="aos" data-aos="fadein-expand"> ABOUT </h2>
+		
+		<h4 class="aos" data-aos="fade">
+			Full stack developer and nerd.
+		</h4>
+	</div>
 </div>
 
 
 <div class="section" id="contact">
-    <div class="container" style="text-align: left; margin-bottom: 30px;">
-        <h2 class="aos" data-aos="fadein-expand">EXPERIENCE</h2>
+	<div class="container" style="text-align: left; margin-bottom: 30px;">
+		<h2 class="aos" data-aos="fadein-expand">EXPERIENCE</h2>
+		
+		<p> What I do, and how well </p>
+		
+		<div class="row p-bars">
+			<div data-aos="fade"
+			class="aos col-md-3 aos-trigger">
+			<p>JS</p>
+			<div class="progress">
+				<div aria-label="JS" class="progress-bar" role="progressbar" style="width:65%;"></div>
+			</div> 
+		</div>
+		
+		<div data-aos="fade"
+		class="aos col-md-3 aos-trigger">
+		<p>PYTHON</p>
+		<div class="progress">
+			<div aria-label="Python" class="progress-bar" role="progressbar" style="width:35%;"></div>
+		</div> 
+	</div>
+	
+	<div data-aos="fade"
+	class="aos col-md-3 aos-trigger">
+	<p>GOLANG</p>
+	<div class="progress">
+		<div aria-label="Golang" class="progress-bar" role="progressbar" style="width:35%;"></div>
+	</div> 
+</div>
 
-        <p> What I do, and how well </p>
-
-        <div class="row p-bars">
-            <div data-aos="fade"
-            class="aos col-md-3 aos-trigger">
-                <p>JS</p>
-                <div class="progress">
-                    <div aria-label="JS" class="progress-bar" role="progressbar" style="width:65%;"></div>
-                </div> 
-            </div>
-
-            <div data-aos="fade"
-            class="aos col-md-3 aos-trigger">
-                <p>PYTHON</p>
-                <div class="progress">
-                    <div aria-label="Python" class="progress-bar" role="progressbar" style="width:35%;"></div>
-                </div> 
-            </div>
-
-            <div data-aos="fade"
-            class="aos col-md-3 aos-trigger">
-                <p>GOLANG</p>
-                <div class="progress">
-                    <div aria-label="Golang" class="progress-bar" role="progressbar" style="width:35%;"></div>
-                </div> 
-            </div>
-
-            <div data-aos="fade"
-            class="aos col-md-3 aos-trigger">
-                <p>WEB DESIGN</p>
-                <div class="progress">
-                    <div aria-label="Web design" class="progress-bar" role="progressbar" style="width:70%;"></div>
-                </div> 
-            </div>
-        </div>
-    </div>
+<div data-aos="fade"
+class="aos col-md-3 aos-trigger">
+<p>WEB DESIGN</p>
+<div class="progress">
+	<div aria-label="Web design" class="progress-bar" role="progressbar" style="width:70%;"></div>
+</div> 
+</div>
+</div>
+</div>
 </div>
 
 
 <div class="section" id="portfolio">
-    <div class="container" style="text-align: left; margin-bottom: 30px;">
-        <h2 class="aos" data-aos="fadein-expand">PROJECTS</h2>
-
-        <p class="aos" data-aos="expandy" style="margin-top: 20px"> Check out a few of my creations. Pulled from <a href="https://github.com/XilogOfficial">GitHub</a>.</p>
-        <div class="card-columns gh-projects"></div>
-    </div>
+	<div class="container" style="text-align: left; margin-bottom: 30px;">
+		<h2 class="aos" data-aos="fadein-expand">PROJECTS</h2>
+		
+		<p class="aos" data-aos="expandy" style="margin-top: 20px"> Check out a few of my creations. Pulled from <a href="https://github.com/XilogOfficial">GitHub</a>.</p>
+		<div class="card-columns gh-projects"></div>
+	</div>
 </div>
 
 
 <div class="section" id="contact">
-    <div class="container">
-        <h2 class="aos" data-aos="fadein-expand">LINKS</h2>
-        
-        <div class="aos" data-aos="expandy" class="contact-slides">
-            <!-- icons -->
-            <div class="slide">
-                <a target="_blank" href="mailto:alanrd772@gmail.com">
-                    <i class="fas fa-envelope social mail" style="font-size: 5rem"></i>
-                </a>
-                <p>hello@xilog.xyz</p>
-            </div>
-
-            <div class="slide">
-                <a rel=”noreferrer noopener” target="_blank" href="https://github.com/XilogOfficial">
-                    <i class="fab fa-github social github" style="font-size: 5rem"></i>
-                </a>
-                <p>XilogOfficial</p>
-            </div>
-        </div>
-        
-        <!-- the dots -->
-        <div class="aos" data-aos="fade-up" style="text-align:center">
-            <span id="mailh" class="dot" onclick="currentSlide(1)"></span>
-            <span id="githubh" class="dot" onclick="currentSlide(2)"></span>
-        </div>
-        
-        <script>
-            var index = 1;
-            showSlide(index);
-            
-            function currentSlide(n) {
-                showSlide(index = n);
-            }
-            
-            function showSlide(n) {
-                var i;
-                var slides = $(".slide"), count = slides.length;
-                var dots = $(".dot");
-                if (n > slides.length) index = 1
-                if (n < 1) index = slides.length
-                slides.each(function (i) {
-                    if (i !== index-1) {
-                        $(this).animate({opacity: 0, right: '40%'}, 200, function () {
-                            $(this).css({opacity: 1, right: 0, display: 'none'})
-                        })
-                    }
-                }).promise().done(function () {
-                    slides.eq(index-1).css({
-                        opacity: 0, 
-                        right: '-40%', 
-                        display: 'block'
-                    }).animate({
-                        opacity: 1, 
-                        right: 0
-                    }, 200);
-                })
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                
-                dots[index-1].className += " active";
-            } 
-        </script>
-    </div>
+	<div class="container">
+		<h2 class="aos" data-aos="fadein-expand">LINKS</h2>
+		
+		<div class="aos" data-aos="expandy" class="contact-slides">
+			<!-- icons -->
+			<a target="_blank" href="mailto:alanrd772@gmail.com">
+				<div class="slide">
+					<i class="bi-envelope-fill" style="font-size: 5rem"></i>
+					<p>hello@xilog.xyz</p>
+				</div>
+			</a>
+			
+			<a rel=”noreferrer noopener” target="_blank" href="https://github.com/XilogOfficial">
+				<div class="slide">
+					<i class="bi-github" style="font-size: 5rem"></i>
+					<p>XilogOfficial</p>
+				</div>
+			</a>
+		</div>
+		
+		<!-- the dots -->
+		<div class="aos" data-aos="fade-up" style="text-align:center">
+			<span id="mailh" class="dot" onclick="currentSlide(1)"></span>
+			<span id="githubh" class="dot" onclick="currentSlide(2)"></span>
+		</div>
+		
+		<script>
+			var index = 1;
+			showSlide(index);
+			
+			function currentSlide(n) {
+				showSlide(index = n);
+			}
+			
+			function showSlide(n) {
+				var i;
+				var slides = $(".slide"), count = slides.length;
+				var dots = $(".dot");
+				if (n > slides.length) index = 1
+				if (n < 1) index = slides.length
+				slides.each(function (i) {
+					if (i !== index-1) {
+						$(this).animate({opacity: 0, right: '40%'}, 200, function () {
+							$(this).css({opacity: 1, right: 0, display: 'none'})
+						})
+					}
+				}).promise().done(function () {
+					slides.eq(index-1).css({
+						opacity: 0, 
+						right: '-40%', 
+						display: 'block'
+					}).animate({
+						opacity: 1, 
+						right: 0
+					}, 200);
+				})
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				}
+				
+				dots[index-1].className += " active";
+			} 
+		</script>
+	</div>
 </div>
 
 <!--
-    <div class="section" id="fun">
-        <h2>Fun Tools</h2>
-        
-        <div class="container" style="text-align: left; margin-bottom: 30px;">
-            <p2>
-                If you want to visit the fun tools that were previously displayed on the homepage, please click the button below.
-            </p2>
-            <br>
-            <a href="./funstuff.html"><input type="button" value="FUN!" class="button1"></a>
-        </div>
-    </div>
+	<div class="section" id="fun">
+		<h2>Fun Tools</h2>
+		
+		<div class="container" style="text-align: left; margin-bottom: 30px;">
+			<p2>
+				If you want to visit the fun tools that were previously displayed on the homepage, please click the button below.
+			</p2>
+			<br>
+			<a href="./funstuff.html"><input type="button" value="FUN!" class="button1"></a>
+		</div>
+	</div>
 -->

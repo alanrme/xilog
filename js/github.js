@@ -9,7 +9,7 @@ fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=star
                 <h4>${item.name}</h4>
                 <p2>${item.description}</p2>
                 <div class="stars">
-                    <i class="far fa-star"></i> ${item.stargazers_count}
+                    <i class="bi-star-fill"></i> ${item.stargazers_count}
                 </div>
             </div>
         </a>

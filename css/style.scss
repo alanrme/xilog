@@ -10,7 +10,6 @@ $secondary: #4e44b0;
 
 
 html {
-	font-family: $font-stack;
 	font-size: 13px;
 }
 @media screen and (min-width: 800px) { html { font-size: 15px; } }
@@ -18,6 +17,7 @@ html {
 @media screen and (min-width: 1600px) { html { font-size: 20px; } }
 @media screen and (min-width: 2000px) { html { font-size: 24px; } }
 body {
+	font-family: $font-stack;
 	background-color: black;
 	color: white;
 	margin: 0;
@@ -123,8 +123,8 @@ p3 {
 	}
 }
 
-span {
-	font-family: $font-stack;
+a {
+    text-decoration: none !important;
 }
 
 
@@ -364,16 +364,13 @@ nav {
 		min-height: 2em;
 		color: white;
 		background: rgba(255,255,255,0);
-		font-family: $font-stack;
 		font-size: 1.5rem;
 		padding: 5px 15px;
-		text-decoration: none;
 		-webkit-transition: 0.5s;
 		transition: 0.5s;
 		&:hover {
 			background: rgba(255,255,255,0.2);
 			color: white;
-			text-decoration: none;
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
 		}
@@ -410,7 +407,7 @@ nav {
 	/* target nav logo */
 	#navlogo {
 		color: white !important;
-		font-family: "Montserrat Medium", $font-stack;
+        font-weight: 500;
 		font-size: 1.5rem;
 		svg {
 			fill: white;
@@ -466,10 +463,8 @@ nav.awake {
 			min-height: 2em;
 			background: transparent;
 			color: white !important;
-			font-family: $font-stack;
 			font-size: 1.5rem;
 			padding: 5px;
-			text-decoration: none !important;
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
 		}
@@ -477,7 +472,7 @@ nav.awake {
 		/* target menu logo */
 		#navlogo {
 			color: white !important;
-			font-family: "Montserrat Medium", $font-stack;
+			font-weight: 500;
 			font-size: 1.5rem;
 			svg {
 				fill: white;
@@ -525,7 +520,6 @@ nav.awake {
 
 	/* progress bar filled part text */
 	span {
-		font-family: $font-stack;
 		font-size: 1.4rem;
 	}
 }
@@ -754,12 +748,10 @@ input:checked + .slider:before {
 	.p-name {
 		position: relative;
 		color: white;
-		font-family:"Montserrat", "Helvetica", "Arial";
 		font-size: 1.5rem;
 	} .p-desc {
 		position: relative;
 		color: white;
-		font-family:"Montserrat", "Helvetica", "Arial";
 		font-size: 1.2rem;
 	}
 }
@@ -778,7 +770,12 @@ input:checked + .slider:before {
 	display: none;
 	position: relative;
 	text-align: center;
-	i { color: white }
+    color: white;
+	transition: 0.3s;
+	&:hover {
+		text-shadow: 0 0 15px gray;
+		transition: 0.3s;
+	}
 }
 
 /* The dots/bullets/indicators */
@@ -896,7 +893,6 @@ button, a.button, input[type="button"] {
 	display: inline-block;
 	cursor: pointer;
 	color: black;
-	font-family: $font-stack;
 	font-size: 1.5rem;
 	padding: 4px 14px;
 	text-decoration: none;
