@@ -71,7 +71,7 @@ body {
 
 h1 {
 	font: {
-		family: $font-stack;
+		
 		size: 4em;
 		weight: 500;
 	}
@@ -80,7 +80,7 @@ h1 {
 
 h2 {
 	font: {
-		family: $font-stack;
+		
 		size: 3em;
 		weight: 500;
 	}
@@ -88,15 +88,15 @@ h2 {
 
 h3 {
 	font: {
-		family: $font-stack;
+		
 		size: 2.5em;
 		weight: 500;
 	}
 }
 
-h4 {
+h4, p.big {
 	font: {
-		family: $font-stack;
+		
 		size: 2em;
 		weight: 500;
 	}
@@ -104,21 +104,21 @@ h4 {
 
 p {
 	font: {
-		family: $font-stack;
+		
 		size: 1.8em;
 	}
 }
 
 p2 {
 	font: {
-		family: $font-stack;
+		
 		size: 1.6em;
 	}
 }
 
 p3 {
 	font: {
-		family: $font-stack;
+		
 		size: 1.4em;
 	}
 }
