@@ -543,14 +543,16 @@ nav.awake {
 			opacity: 0.6;
 			font-size: 1.2em;
 		}
-		h4:after {
+        // turning h3 into h4 to please Lighthouse
+        h3 { font-size: 2em; }
+		h3:after {
 			content: ">";
-			opacity: 0.2;
+			opacity: 0.3;
 			margin-left: 0.1em;
 			transition: 0.3s;
 		}
-		&:hover h4:after {
-			opacity: 0.5;
+		&:hover h3:after {
+			opacity: 0.6;
 			margin-left: 0.4em;
 		}
 	}

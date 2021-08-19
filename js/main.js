@@ -1,10 +1,3 @@
-// more efficient than jQuery AJAX
-var _ = (selector, all) => {
-    if (all) return document.querySelectorAll(selector);
-    else return document.querySelector(selector);
-};
-
-
 // LOADER HIDE
 window.onload = () => {
     // fade out loader, then hide
@@ -32,19 +25,6 @@ window.onload = () => {
 
     // animate background zoom in - doesn't work right with parallax scroll so disabled
     // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
-}
-
-
-// alternative to jQuery document ready
-function ready(callback) {
-    // in case the document is already rendered
-    if (document.readyState!='loading') callback();
-    // modern browsers
-    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
-    // IE <= 8
-    else document.attachEvent('onreadystatechange', function(){
-        if (document.readyState=='complete') callback();
-    });
 }
 
 ready(() => {

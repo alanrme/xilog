@@ -1,22 +1,23 @@
-function easteregg(x) {
+function triggerEgg(egg) {
     // var for compatibility
     var audio = new Audio('../audio/easteregg.mp3');
     audio.play();
-    x.delay(1500).fadeIn(3000)
+    $(egg).delay(1500).fadeIn(3000)
 }
 
-$(function(){
-    var x = $('#easteregg') // find easteregg
-    $('#easteregg-content #close').click(function() { // when close button clicked
-        x.fadeOut()
+ready(() => {
+    // called egg cuz I wanted an excuse to call a variable egg
+    var egg = _('#easteregg')
+    _('#easteregg-content #close').addEventListener("click", () => { // when close button clicked
+        $(egg).fadeOut()
     })
-    $('#easteregg-content #loader-enable').click(function() { // when loader button clicked
+    _('#easteregg-content #loader-enable').addEventListener("click", () => { // when loader button clicked
         $('#loader-bg').show().css("opacity", 1)
     })
 
     //CLICK-TRIGGER EASTEREGG
     $('#trigger').click(function() { // when trigger clicked
-        easteregg(x)
+        triggerEgg(egg)
     });
 
 
@@ -51,10 +52,10 @@ $(function(){
             }
             if (count == 10){
                 // Success!
-                if (x.css('display') === "none") { // if diplay none fade in
-                    easteregg(x)
+                if (egg.style.display === "none") { // if diplay none fade in
+                    triggerEgg(egg)
                 } else {
-                    x.fadeOut(); // vice versa
+                    $(egg).fadeOut(); // vice versa
                 }
                 reset();
             }
