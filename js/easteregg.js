@@ -1,66 +1,75 @@
-function triggerEgg(egg) {
+function showEgg(egg) {
     // var for compatibility
-    var audio = new Audio('../audio/easteregg.mp3');
-    audio.play();
-    $(egg).delay(1500).fadeIn(3000)
+    var audio = new Audio("../audio/easteregg.mp3")
+    audio.play()
+    egg.style.display = "block"
+    setTimeout(function(){
+        egg.classList.add("show")
+    }, 1500);
+}
+
+function hideEgg(egg) {
+    egg.classList.remove("show")
+    egg.addEventListener("transitionend", () => {
+        if (!egg.classList.contains("show")) // so this only fires when fading out
+            egg.style.display = "none"
+    })
 }
 
 ready(() => {
     // called egg cuz I wanted an excuse to call a variable egg
-    var egg = _('#easteregg')
-    _('#easteregg-content #close').addEventListener("click", () => { // when close button clicked
-        $(egg).fadeOut()
+    var egg = _("#easteregg")
+    _("#easteregg #close", true).forEach(e => {
+        e.addEventListener("click", () => { // when close button or bg clicked
+            hideEgg(egg)
+        })
     })
-    _('#easteregg-content #loader-enable').addEventListener("click", () => { // when loader button clicked
-        $('#loader-bg').show().css("opacity", 1)
+    _("#loader-enable").addEventListener("click", () => { // when loader button clicked
+        _("#loader-bg").style.display = "block"
+        _("#loader-bg").style.opacity = 1
     })
 
     //CLICK-TRIGGER EASTEREGG
-    $('#trigger').click(function() { // when trigger clicked
-        triggerEgg(egg)
-    });
+    _("#trigger").addEventListener("click", () => { // when trigger clicked
+        showEgg(egg)
+    })
 
 
     //KONAMI CODE
     var konamikeys = [38,38,40,40,37,39,37,39,66,65], 
     started = false, 
-    count = 0;
+    count = 0
     
-    $(document).keydown(function(e){
+    document.addEventListener('keydown', e => {
         var reset = function() {
-            started = false; 
-            count = 0;
-            return;
-        };
+            started = false 
+            count = 0
+        }
         
-        key = e.keyCode;
-        
-        // Begin watching if first key in sequence was pressed.
+        // begin watching if first key in sequence was pressed
         if(!started){
-            if(key == 38){
-                started = true;
+            if(e.keyCode == konamikeys[0]){
+                started = true
             }
         }
         
-        // If we've started, pay attention to key presses, looking for right sequence.
+        // if sequence was started, start checking keypresses
         if (started){
-            if (konamikeys[count] == key){
-                count++;
+            if (konamikeys[count] == e.keyCode){
+                count++
             } else {
-                // Incorrect key, restart.
-                reset();
+                // incorrect key, reset
+                reset()
             }
-            if (count == 10){
-                // Success!
-                if (egg.style.display === "none") { // if diplay none fade in
-                    triggerEgg(egg)
+
+            if (count == konamikeys.length){ // full code entered
+                if (egg.style.display === "none") { // if diplay none fade in easteregg
+                    showEgg(egg)
                 } else {
-                    $(egg).fadeOut(); // vice versa
+                    hideEgg(egg)
                 }
-                reset();
+                reset()
             }
-        } else {
-            reset();
         }
-    });
-});
+    })
+})

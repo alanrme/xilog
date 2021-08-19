@@ -1,12 +1,13 @@
 // LOADER HIDE
 window.onload = () => {
     // fade out loader, then hide
-    _('#loader-bg').style.opacity = 0;
+    loadBg = _("#loader-bg")
+    loadBg.style.opacity = 0;
     //_('#loader').style.opacity = 0;
-    setTimeout(() => {
-        _('#loader-bg').style.display = 'none';
+    loadBg.addEventListener("transitionend", () => {
+        loadBg.style.display = 'none';
         //_('#loader').style.display = 'none';
-    }, 300);
+    });
 
     // set vh property to the true viewport height to fix it on mobile browsers
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
@@ -71,25 +72,25 @@ ready(() => {
         menuBg.style.display = "flex";
         setTimeout(() => { menuBg.style.opacity = 1; }, 2);
     });
-    closeTriggers = _('.m-close, #menu-bg', true)
-    for (var i = 0; i < closeTriggers.length; i++) {
+    _('.m-close, #menu-bg', true).forEach(e => {
         func = () => {
             menuBg.style.display = "none";
-            $("#menu > *:not('.m-close')").remove(); // lastly empty the menu except for close button
-            menuBg.removeEventListener('transitionend',func); // remove listener so it won't trigger on fadein
+            // empty the menu except for close button & remove listener so it won't fire on fadein
+            _("#menu a:not(.m-close)", true).forEach(e => e.remove());
+            menuBg.removeEventListener('transitionend', func);
         }
-        closeTriggers[i].addEventListener("click", function(e) { // when close button clicked
+        e.addEventListener("click", () => { // when close button clicked
             menuBg.style.opacity = 0;
             menuBg.addEventListener('transitionend', func, false);
         })
-    }
+    })
 
     
     // SCROLL UP BUTTON
-    // This looks like it's defined to be used once but it is used more
-    // in the scroll-position loop
-    scrollup = $('.scrollup');
-    scrollup.on('click', function () { // if scroll up clicked
+    // scrollup looks like it's defined to only be used once but it is
+    // used more in the scroll-position loop further down
+    scrollup = _('.scrollup');
+    scrollup.addEventListener("click", () => {
         window.scroll({
             top: 0, 
             left: 0, 
@@ -113,10 +114,11 @@ ready(() => {
 
     // SCROLL POSITION
     let scrollpos = 0;
-    $(window).scroll(function () { // when scrolling
+    document.addEventListener('scroll', () => {
         scrollpos = $(window).scrollTop();
 
         // parallax scroll
+        /*
         $('.parallax').each(function(index, element) {
             // Check if the element is in the viewport.
             if (isInViewport(this)) {
@@ -126,12 +128,13 @@ ready(() => {
                 $(".hero").css('transform', `translateY(${parseInt(ratio*0.5)}px)`)
             }
         })
+        */
     });
 
 
 
     let intro; // top of content
-    let nav = $('nav');
+    let nav = _('nav');
     // run every 150ms, put most scroll events here
     // more efficient than the scroll event
     window.setInterval(function(){
@@ -139,33 +142,33 @@ ready(() => {
         // ^ this is in a loop so that when the screen is turned it
         // will update with the new position
 
-        // SHOW/HIDE SCROLL UP BUTTON
-        if (scrollpos > intro) { // if user scrolls below intro, show button
-            scrollup.fadeIn(300)
-        } else { // scroll above, hide button
-            scrollup.fadeOut(300)
+        // if user scrolls below intro, show button
+        if (scrollpos > intro) {
+            scrollup.classList.add("show")
+        } else {
+            scrollup.classList.remove("show")
         }
 
 
         // FIXED NAV
         // handles attaching nav to screen when scrolled far enough
         if (scrollpos > 200) { // after the nav is no longer visible
-            if (!nav.hasClass('scrolled')) nav.addClass('scrolled');
+            if (!nav.classList.contains('scrolled')) nav.classList.add('scrolled');
 
             // nest these since realistically they only run if the
             // scroll is above 100, more efficient code
             if (scrollpos > intro) {
-                if (!nav.hasClass('awake')) nav.addClass('awake');
+                if (!nav.classList.contains('awake')) nav.classList.add('awake');
             }
             if (scrollpos < intro) {
-                if (nav.hasClass('awake')) {
-                    nav.removeClass('awake');
-                    nav.addClass('sleep');
+                if (nav.classList.contains('awake')) {
+                    nav.classList.remove('awake');
+                    nav.classList.add('sleep');
                 }
             }
         } 
         if (scrollpos < 200) {
-            if (nav.hasClass('scrolled')) nav.removeClass('scrolled sleep');
+            if (nav.classList.contains('scrolled')) nav.classList.remove('scrolled sleep');
         }
     }, 150);
 });
