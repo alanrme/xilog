@@ -168,7 +168,7 @@ ready(() => {
             }
         } 
         if (scrollpos < 200) {
-            if (nav.classList.contains('scrolled')) nav.classList.remove('scrolled sleep');
+            if (nav.classList.contains('scrolled')) nav.classList.remove("scrolled", "sleep");
         }
     }, 150);
 });
