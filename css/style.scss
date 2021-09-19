@@ -549,13 +549,13 @@ nav.awake {
 		}
         // turning h3 into h4 to please Lighthouse
         h3 { font-size: 2em; }
-		h3:after {
+		&.arrow h3:after {
 			content: ">";
 			opacity: 0.3;
 			margin-left: 0.1em;
 			transition: 0.3s;
 		}
-		&:hover h3:after {
+		&.arrow:hover h3:after {
 			opacity: 0.6;
 			margin-left: 0.4em;
 		}
