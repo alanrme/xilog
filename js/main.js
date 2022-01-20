@@ -40,7 +40,7 @@ ready(() => {
 
 
     // Haptics when link/button is pressed or released
-    _("button, a", true).forEach(e => {
+    _("button, a, nav a, nav .menu", true).forEach(e => {
         // for each element in the array, add an event listener of the same name
         ["touchstart", "touchend"].forEach(event => {
             e.addEventListener(event, () => { navigator.vibrate(5) });
