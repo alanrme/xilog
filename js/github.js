@@ -1,4 +1,5 @@
 projects = _(".gh-projects");
+var msnry = new Masonry(".gh-projects", { "percentPosition": true });
 
 fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=stars&order=desc")
 .then((resp) => resp.json())
@@ -7,7 +8,7 @@ fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=star
         item = data.items[i]
 
         projects.innerHTML += `
-        <a href="${item.html_url}" style="color: inherit;">
+        <a href="${item.html_url}" class="col-sm-6" style="color: inherit;">
             <div class="card aos arrow" data-aos="fadein-up">
                 <h3>${item.name}</h3>
                 <p2>${item.description}</p2>
@@ -18,6 +19,9 @@ fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=star
         </a>
         `
     }
+
+    msnry.reloadItems()
+    msnry.layout()
 })
 .catch(function(error) {
     console.log(error);
