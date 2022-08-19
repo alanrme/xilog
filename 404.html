@@ -1,39 +1,16 @@
 ---
+layout: default
 title: 404
 ---
-<html>
-{% include head.html %}
 
-<body data-paroller-factor="-0.2" data-paroller-factor-sm="-0.15"
-data-paroller-factor-xs="-0.1" data-paroller-transition="transform .2s linear">
-    {% include hero.html %}
-    <div class="content">
-        <div class="section shake" id="intro">
-            <h2>Whoops!</h2>
-            <div class="container">
-                <p>
-                    Time to recheck that URL.<br>
-                    <a style="opacity: 30%">(tap here if you're on mobile...)</a>
-                </p>
-                <a class="button" href="{{ site.url }}">Go Home</a>
-                <input type="button" value="Go Back" onclick="history.back()">
-            </div>
-        </div>
+<div class="section shake" id="intro">
+    <h2>Whoops!</h2>
+    <div class="container">
+        <p>
+            Time to recheck that URL.<br>
+            <a style="opacity: 30%">(tap here if you're on mobile...)</a>
+        </p>
+        <a class="button" href="{{ site.baseurl }}/">Go Home</a>
+        <input type="button" value="Go Back" onclick="history.back()">
     </div>
-    
-    {% include footer.html %}
-    
-    <!-- MODALS BELOW -->
-    <a href="#top"></a><div class="scrollup">
-        <i class="fa fa-chevron-up" style="font-size: 2em; color: white"></i>
-    </div></a>
-    
-    <div class="modal" id="menu-bg" style="display: none">
-        <div id="menu">
-            <a class="m-close"><i class="fas fa-times"></i> Close</a>
-        </div>
-    </div>
-    
-    <script src="{{site.baseurl}}/js/404.js" async></script>
-</body>
-</html>
+</div>
