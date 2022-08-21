@@ -12,18 +12,6 @@ window.onload = () => {
     // set vh property to the true viewport height to fix it on mobile browsers
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 
-    // "Xilog" hero text animation
-    // wrap every letter in a span
-    /*
-    var textWrapper = _("#xilogheader");
-    textWrapper.innerHTML = textWrapper.innerHTML.replace(/\S/g, "<span class='letter'>$&</span>");
-    headerSpans = _("#xilogheader span", true)
-    for (var i = 0; i < headerSpans.length; i++) {
-        headerSpans[i].style.animationDelay = `${i*0.1}s`;
-        headerSpans[i].classList.add('animated');
-    }
-    */
-
     // animate background zoom in - doesn't work right with parallax scroll so disabled
     // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
 }
@@ -40,12 +28,15 @@ ready(() => {
 
 
     // Haptics when link/button is pressed or released
-    _("button, a, nav .menu", true).forEach(e => {
+    // define a function to add a listener so other scripts
+    // can call it when they dynamically add elements
+    addHaptics = (element) => {
         // for each element in the array, add an event listener of the same name
         ["touchstart", "touchend"].forEach(event => {
-            e.addEventListener(event, () => { navigator.vibrate(5) });
+            element.addEventListener(event, () => navigator.vibrate(5));
         });
-    });
+    }
+    _("button, a, nav .menu", true).forEach(e => addHaptics(e));
 
 
     // DARK MODE
@@ -80,17 +71,33 @@ ready(() => {
         // fade in menu - delay because if it wasn't there the opacity transition didn't work
         menuBg.style.display = "flex";
         setTimeout(() => { menuBg.style.opacity = 1; }, 2);
+
+        // apply blur effect
+        ["blur", "blur2"].forEach(id => {
+            blurModal = _(`.modal#${id}`);
+            blurModal.classList.add("show");
+            blurModal.classList.add("animate");
+        });
     });
+
     _('.m-close, #menu-bg', true).forEach(e => {
         func = () => {
+            // hide both menuBg and blurModal
             menuBg.style.display = "none";
+            ["blur", "blur2"].forEach(id => { _(`.modal#${id}`).classList.remove("show"); });
+
             // empty the menu except for close button & remove listener so it won't fire on fadein
             _("#menu a:not(.m-close)", true).forEach(e => e.remove());
             menuBg.removeEventListener('transitionend', func);
         }
+
         e.addEventListener("click", () => { // when close button clicked
             menuBg.style.opacity = 0;
             menuBg.addEventListener('transitionend', func, false);
+
+            // un-animate blur effect, finish setting display: none in
+            // menuBg's transitionend event
+            ["blur", "blur2"].forEach(id => { _(`.modal#${id}`).classList.remove("animate"); });
         })
     })
 

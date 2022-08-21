@@ -22,6 +22,8 @@ fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=star
 
     msnry.reloadItems()
     msnry.layout()
+    // Array.from() converts the HTMLCollection to an array
+    Array.from(projects.children).forEach(e => addHaptics(e))
 })
 .catch(function(error) {
     console.log(error);
