@@ -11,7 +11,7 @@
 }
 */
 
-.aos { transition-duration: 0.4s; }
+.aos { transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.15, 0.8, 0.4, 1); }
 
 [data-aos="fadein"] {
     opacity: 0;
@@ -28,6 +28,18 @@
     &.aos-animate {
         opacity: 1;
         letter-spacing: 0;
+    }
+}
+
+[data-aos="fadein-expand-up"] {
+    opacity: 0;
+    letter-spacing: -0.05em;
+    transform: translateY(1em);
+    transition-property: opacity, letter-spacing, transform;
+    &.aos-animate {
+        opacity: 1;
+        letter-spacing: 0;
+        transform: translateY(0);
     }
 }
 

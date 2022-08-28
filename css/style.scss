@@ -429,11 +429,8 @@ nav.scrolled {
 	backdrop-filter: blur(3px);
 	transform: translateY(-100%);
 }
-nav.sleep {	transition: transform 0.5s; }
-nav.awake {
-	transform: translateY(0);
-	transition: transform 0.5s;
-}
+nav.sleep {	transition: 0.5s cubic-bezier(0.15, 0.8, 0.4, 1); }
+nav.awake { transform: translateY(0); }
 
 
 
@@ -492,11 +489,8 @@ nav.awake {
 	cursor: pointer;
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(3px);
-	transition: 0.3s;
-    &.show {
-        right: 3em;
-        transition: 0.3s;
-    }
+	transition: 0.5s cubic-bezier(0.15, 0.8, 0.4, 1);
+    &.show { right: 3em; }
     &:hover {
 		text-shadow: 0 0 15px gray;
         transition: 0.3s;
