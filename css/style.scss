@@ -450,7 +450,7 @@ nav.awake { transform: translateY(0); transition: 0.5s $bezier; }
 		height: auto;
 		
 		/* target tab */
-		a {
+		a, > span {
 			display: block;
 			min-height: 2em;
 			background: transparent;
