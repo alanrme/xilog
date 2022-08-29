@@ -131,7 +131,7 @@ ready(() => {
     // SCROLL POSITION
     let scrollpos = 0;
     document.addEventListener('scroll', () => {
-        scrollpos = window.scrollTop;
+        scrollpos = window.scrollY;
 
         // parallax scroll
         /*
@@ -154,7 +154,7 @@ ready(() => {
     // run every 150ms, put most scroll events here
     // more efficient than the scroll event
     window.setInterval(function(){
-        intro = _('.content').getBoundingClientRect().top; // set top of content
+        intro = _('.content').offsetTop; // set top of content
         // ^ this is in a loop so that when the screen is turned it
         // will update with the new position
 
