@@ -255,7 +255,6 @@ hr.divider {
 }
 
 .badge {
-	font-size: 0.7em;
 	border-radius: 0;
 	background-color: #333;
 }
@@ -801,7 +800,8 @@ input:checked + .slider:before {
 }
 
 .slides-container {
-	width: 250px;
+	width: 100%;
+	max-width: 350px;
 	text-align: center;
 	overflow: hidden;
 	margin-left: auto;
@@ -818,8 +818,9 @@ input:checked + .slider:before {
 		margin: 0 0 0.5rem 0;
 		position: relative;
 		border-style: solid;
-		border-width: 0 0.2em 0.2em 0;
-		border-color: $primary;
+		border-width: 0.2em 0 0 0;
+		border-image: linear-gradient(to right, #1ec1c7, #4e44b0);
+		border-image-slice: 1;
 		&:active {
 			top: 1px;
 		}
@@ -849,8 +850,7 @@ input:checked + .slider:before {
 	> div {
 		scroll-snap-align: start;
 		flex-shrink: 0;
-		width: 250px;
-		height: 200px;
+		width: 100%;
 		margin-right: 50px;
 		transform-origin: center center;
 		transform: scale(1);
