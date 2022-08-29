@@ -149,7 +149,7 @@ ready(() => {
 
 
 
-    let intro; // top of content
+    let intro = _('.content').offsetTop; // top of content
     let nav = _('nav');
     // run every 150ms, put most scroll events here
     // more efficient than the scroll event

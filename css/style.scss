@@ -4,9 +4,9 @@
 /* SASS VARIABLES */
 /* Fonts */
 $font-stack: "Poppins", "Helvetica", "Arial";
-
 $primary: #1ec1c7;
 $secondary: #4e44b0;
+$bezier: cubic-bezier(0.15, 0.8, 0.4, 1);
 
 html {
 	font-size: 13px;
@@ -429,8 +429,8 @@ nav.scrolled {
 	backdrop-filter: blur(3px);
 	transform: translateY(-100%);
 }
-nav.sleep {	transition: 0.5s cubic-bezier(0.15, 0.8, 0.4, 1); }
-nav.awake { transform: translateY(0); }
+nav.sleep {	transition: 0.5s $bezier; }
+nav.awake { transform: translateY(0); transition: 0.5s $bezier; }
 
 
 
@@ -489,7 +489,7 @@ nav.awake { transform: translateY(0); }
 	cursor: pointer;
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(3px);
-	transition: 0.5s cubic-bezier(0.15, 0.8, 0.4, 1);
+	transition: 0.5s $bezier;
 	&.show { right: 3em; }
 	&:hover {
 		text-shadow: 0 0 15px gray;
@@ -550,7 +550,7 @@ nav.awake { transform: translateY(0); }
 }
 .card {
 	border-radius: 0;
-	background-color: #111;
+	background-color: #222;
 	padding: 1em 1.5em;
 	margin-bottom: 1.25em !important;
 }
