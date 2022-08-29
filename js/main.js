@@ -9,9 +9,6 @@ window.onload = () => {
         //_('#loader').style.display = 'none';
     });
 
-    // set vh property to the true viewport height to fix it on mobile browsers
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-
     // animate background zoom in - doesn't work right with parallax scroll so disabled
     // window.setTimeout(() => { $("#background").css("transform", "scale(1.3)"); }, 350);
 }
@@ -19,7 +16,10 @@ window.onload = () => {
 ready(() => {
     window.scrollTo(0, 0); // scroll to top on page load
 
-    
+    // set vh property to the true viewport height to fix it on mobile browsers
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+
+
     // DISABLE RIGHT CLICK
     noRightClick = _(".norightclick", true)
     for (var i = 0; i < noRightClick.length; i++) {
@@ -131,7 +131,7 @@ ready(() => {
     // SCROLL POSITION
     let scrollpos = 0;
     document.addEventListener('scroll', () => {
-        scrollpos = $(window).scrollTop();
+        scrollpos = window.scrollTop;
 
         // parallax scroll
         /*
@@ -154,7 +154,7 @@ ready(() => {
     // run every 150ms, put most scroll events here
     // more efficient than the scroll event
     window.setInterval(function(){
-        intro = $('.content').offset().top; // set top of content
+        intro = _('.content').getBoundingClientRect().top; // set top of content
         // ^ this is in a loop so that when the screen is turned it
         // will update with the new position
 

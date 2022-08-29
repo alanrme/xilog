@@ -1,25 +1,26 @@
-function isInViewport(node) {
+function isInViewport(node, excludeTop = false) {
     var rect = node.getBoundingClientRect()
+    // excludeTop bypasses the check if the element is above the top of the viewport
     return (
         (rect.height > 0 || rect.width > 0) &&
-        rect.bottom >= 0 &&
+        (excludeTop || rect.bottom >= 0) &&
         rect.right >= 0 &&
         rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.left <= (window.innerWidth || document.documentElement.clientWidth)
     )
 }
+
 window.setInterval(function(){
-    $(".aos").each(function(index, element) {
-        item = $(element)
-        if(isInViewport(element)) {
-            delay = item.data("aos-delay");
+    _(".aos", true).forEach(element => {
+        if(isInViewport(element, true)) {
+            delay = element.getAttribute("aos-delay");
             if(delay) {
-                item.css("transition-delay", `0.${delay}s`)
-                item.addClass("aos-animate")
+                element.style.transitionDelay = `0.${delay}s`
+                element.classList.add("aos-animate")
             }
-            else item.addClass("aos-animate");
+            else element.classList.add("aos-animate");
         } else {
-            item.removeClass("aos-animate");
+            element.classList.remove("aos-animate");
         }
     })
 }, 250)

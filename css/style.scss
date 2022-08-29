@@ -23,23 +23,23 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-    overflow-x: hidden; // hide horizontal scroll
-
+	overflow-x: hidden; // hide horizontal scroll
+	
 	transition: 0.5s;
 	transition-property: background-color, color;
 }
 
 #background {
-    z-index: -2;
+	z-index: -2;
 	position: absolute;
-    height: 100%;
-    width: 100%;
+	height: 100%;
+	width: 100%;
 	background-image: url("../img/bg.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center 0px;
 	background-size: cover;
-
+	
 	transform: scale(1);
 	transition: transform 0.7s cubic-bezier(0.385, 0, 0, 1.000);
 }
@@ -124,7 +124,7 @@ p3 {
 }
 
 a {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
 
 
@@ -351,8 +351,8 @@ nav {
 	height: auto;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.35);
-
-
+	
+	
 	/* target tab */
 	a {
 		display: inline-block;
@@ -369,7 +369,7 @@ nav {
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
 		}
-
+		
 		&#donate { /*donate button*/
 			float: right;
 			i { /*fontawesome icon*/
@@ -398,11 +398,11 @@ nav {
 			}
 		}
 	}
-
+	
 	/* target nav logo */
 	#navlogo {
 		color: white !important;
-        font-weight: 500;
+		font-weight: 500;
 		font-size: 1.5rem;
 		svg {
 			fill: white;
@@ -410,7 +410,7 @@ nav {
 			width: auto;
 		}
 	}
-
+	
 	/* menu button for mobile */
 	.menu {
 		height: auto;
@@ -442,13 +442,13 @@ nav.awake { transform: translateY(0); }
 	align-items: center;
 	opacity: 0;
 	transition: 0.5s opacity;
-
+	
 	/* target mobile menu */
 	#menu {
 		position: absolute;
 		width: 80%;
 		height: auto;
-
+		
 		/* target tab */
 		a {
 			display: block;
@@ -460,7 +460,7 @@ nav.awake { transform: translateY(0); }
 			-webkit-transition: 0.5s;
 			transition: 0.5s;
 		}
-
+		
 		/* target menu logo */
 		#navlogo {
 			color: white !important;
@@ -483,18 +483,18 @@ nav.awake { transform: translateY(0); }
 	position: fixed;
 	bottom: 3em;
 	right: -3em;
-    width: 3em;
-    text-align: center;
+	width: 3em;
+	text-align: center;
 	z-index: 999;
 	cursor: pointer;
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(3px);
 	transition: 0.5s cubic-bezier(0.15, 0.8, 0.4, 1);
-    &.show { right: 3em; }
-    &:hover {
+	&.show { right: 3em; }
+	&:hover {
 		text-shadow: 0 0 15px gray;
-        transition: 0.3s;
-    }
+		transition: 0.3s;
+	}
 }
 
 
@@ -510,7 +510,7 @@ nav.awake { transform: translateY(0); }
 .progress-bar {
 	height: 1em;
 	background: white;
-
+	
 	/* progress bar filled part text */
 	span {
 		font-size: 1.4rem;
@@ -534,8 +534,8 @@ nav.awake { transform: translateY(0); }
 			opacity: 0.6;
 			font-size: 1.2em;
 		}
-        // turning h3 into h4 to please Lighthouse
-        h3 { font-size: 2em; }
+		// turning h3 into h4 to please Lighthouse
+		h3 { font-size: 2em; }
 		&.arrow h3:after {
 			content: ">";
 			opacity: 0.3;
@@ -561,44 +561,44 @@ nav.awake { transform: translateY(0); }
 
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 70px;
-    height: 34px;
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	height: 34px;
 }
 /* Hide default HTML checkbox */
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 /* The slider */
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 999px;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 999px;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
 }
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 36px;
-    left: 4px;
-    bottom: 4px;
-    border-radius: 999px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 36px;
+	left: 4px;
+	bottom: 4px;
+	border-radius: 999px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
 }
 input:checked + .slider {
-    background: linear-gradient(120deg, $primary, $secondary);
+	background: linear-gradient(120deg, $primary, $secondary);
 	background-size: 200% 200%;
 	-webkit-animation: animatedgradient 5s ease infinite;
 	-moz-animation: animatedgradient 5s ease infinite;
@@ -609,9 +609,9 @@ input:hover + .slider {
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.4);
 }
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
 }
 
 
@@ -632,22 +632,22 @@ input:checked + .slider:before {
 	/*pointer-events: none;*/
 	background: rgba(0, 0, 0, 0.7);
 	&#easteregg {
-        backdrop-filter: blur(3px);
-        opacity: 0;
-        transition: opacity 0.5s;
-
-        &.show {
-            opacity: 1;
-            transition: opacity 3s;
-        }
-        #easteregg-content {
-            color: white;
-            pointer-events: auto;
-            margin: 5% auto; /* 15% from the top and centered */
-            padding: 20px;
-            width: 80%;
-        }
-    }
+		backdrop-filter: blur(3px);
+		opacity: 0;
+		transition: opacity 0.5s;
+		
+		&.show {
+			opacity: 1;
+			transition: opacity 3s;
+		}
+		#easteregg-content {
+			color: white;
+			pointer-events: auto;
+			margin: 5% auto; /* 15% from the top and centered */
+			padding: 20px;
+			width: 80%;
+		}
+	}
 	$blur-length: 0.5s;
 	$blur-length: $blur-length/2;
 	&#blur {
@@ -800,35 +800,72 @@ input:checked + .slider:before {
 	position: relative;
 }
 
-/* Hide the images by default */
-.slide {
-	display: none;
-	position: relative;
+.slides-container {
+	width: 250px;
 	text-align: center;
-    color: white;
-	transition: 0.3s;
-	&:hover {
-		text-shadow: 0 0 15px gray;
-		transition: 0.3s;
+	overflow: hidden;
+	margin-left: auto;
+    margin-right: auto;
+	> a {
+		display: inline-flex;
+		width: 2em;
+		height: 2em;
+		font-size: 1.5rem;
+		color: white;
+		text-decoration: none;
+		align-items: center;
+		justify-content: center;
+		margin: 0 0 0.5rem 0;
+		position: relative;
+		border-style: solid;
+		border-width: 0 0.2em 0.2em 0;
+		border-color: $primary;
+		&:active {
+			top: 1px;
+		}
+		&:focus {
+			background: #333;
+		}
 	}
 }
+.slides {
+	display: flex;
+	overflow: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
 
-/* The dots/bullets/indicators */
-.dot {
-	cursor: pointer;
-	height: 25px;
-	width: 45px;
-	margin: 0 2px;
-	background-color: white;
-	border-radius: 999px;
-	display: inline-block;
-	transition: background-color 0.3s ease;
+	// hide the scroll bar (you can't just use overflow: hidden or it prevents swiping on mobile)
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+	&::-webkit-scrollbar { 
+		display: none;  /* Safari and Chrome */
+	}
+	
+	/*
+	scroll-snap-points-x: repeat(300px);
+	scroll-snap-type: mandatory;
+	*/
+	> div {
+		scroll-snap-align: start;
+		flex-shrink: 0;
+		width: 250px;
+		height: 200px;
+		margin-right: 50px;
+		transform-origin: center center;
+		transform: scale(1);
+		transition: transform 0.5s;
+		position: relative;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		&:target {
+			/*   transform: scale(0.8); */
+		}
+	}
 }
-
-#mailh.active, #mailh:hover { background-color: #e94843; }
-#discordh.active, #discordh:hover { background-color: #7289DA; }
-#twitterh.active, #twitterh:hover { background-color: #1DA1F2; }
-#githubh.active, #githubh:hover { background-color: #24292e; border: 2px solid white; }
 
 
 
@@ -843,7 +880,7 @@ input:checked + .slider:before {
 	align-items: center;
 	transition: 0.3s ease forwards;
 	transition-property: opacity;
-
+	
 	p3 {
 		color: white;
 		position: absolute;
@@ -935,7 +972,7 @@ button, a.button, input[type="button"] {
 	outline: 1px solid transparent;
 	outline-offset: 2px;
 	transition: 0.3s;
-
+	
 	&:hover {
 		outline: 1px solid white;
 		transition: 0.3s;

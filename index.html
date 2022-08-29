@@ -25,28 +25,28 @@ title: Xilog
 		<p class="aos" data-aos="fadein-up"> What I do, and how well </p>
 		
 		<div class="row p-bars">
-			<div data-aos="fade" class="aos col-md-3 aos-trigger">
+			<div data-aos="fadein" class="aos col-md-3">
 				<p>JS</p>
 				<div class="progress">
 					<div aria-label="JS" class="progress-bar" role="progressbar" style="width:80%;"></div>
 				</div> 
 			</div>
 			
-			<div data-aos="fade" class="aos col-md-3 aos-trigger">
+			<div data-aos="fadein" class="aos col-md-3">
 				<p>PYTHON</p>
 				<div class="progress">
 					<div aria-label="Python" class="progress-bar" role="progressbar" style="width:35%;"></div>
 				</div> 
 			</div>
 			
-			<div data-aos="fade" class="aos col-md-3 aos-trigger">
+			<div data-aos="fadein" class="aos col-md-3">
 				<p>GOLANG</p>
 				<div class="progress">
 					<div aria-label="Golang" class="progress-bar" role="progressbar" style="width:35%;"></div>
 				</div> 
 			</div>
 
-			<div data-aos="fade" class="aos col-md-3 aos-trigger">
+			<div data-aos="fadein" class="aos col-md-3">
 				<p>WEB DESIGN</p>
 				<div class="progress">
 					<div aria-label="Web design" class="progress-bar" role="progressbar" style="width:70%;"></div>
@@ -73,64 +73,22 @@ title: Xilog
 		
 		<div class="aos" data-aos="fadein-up" class="contact-slides">
 			<!-- icons -->
-			<a aria-label="Email Link" target="_blank" href="mailto:alanrd772@gmail.com">
-				<div class="slide">
-					<i class="bi-envelope-fill" style="font-size: 5rem"></i>
-					<p>hello@xilog.xyz</p>
+			<div class="slides-container">
+				<div class="slides">
+					<div id="slide-1">
+						<i class="bi-envelope-fill" style="font-size: 5rem"></i>
+						<p>hello@xilog.xyz</p>
+					</div>
+					<div id="slide-2">
+						<i class="bi-github" style="font-size: 5rem"></i>
+						<p>XilogOfficial</p>
+					</div>
 				</div>
-			</a>
-			
-			<a aria-label="GitHub Link" rel=”noreferrer noopener” target="_blank" href="https://github.com/XilogOfficial">
-				<div class="slide">
-					<i class="bi-github" style="font-size: 5rem"></i>
-					<p>XilogOfficial</p>
-				</div>
-			</a>
-		</div>
-		
-		<!-- the dots -->
-		<div class="aos" data-aos="fade-up" style="text-align:center">
-			<span id="mailh" class="dot" onclick="currentSlide(1)"></span>
-			<span id="githubh" class="dot" onclick="currentSlide(2)"></span>
-		</div>
-		
-		<script>
-			var index = 1;
-			showSlide(index);
-			
-			function currentSlide(n) {
-				showSlide(index = n);
-			}
-			
-			function showSlide(n) {
-				var i;
-				var slides = $(".slide"), count = slides.length;
-				var dots = $(".dot");
-				if (n > slides.length) index = 1
-				if (n < 1) index = slides.length
-				slides.each(function (i) {
-					if (i !== index-1) {
-						$(this).animate({opacity: 0, right: '40%'}, 200, function () {
-							$(this).css({opacity: 1, right: 0, display: 'none'})
-						})
-					}
-				}).promise().done(function () {
-					slides.eq(index-1).css({
-						opacity: 0, 
-						right: '-40%', 
-						display: 'block'
-					}).animate({
-						opacity: 1, 
-						right: 0
-					}, 200);
-				})
-				for (i = 0; i < dots.length; i++) {
-					dots[i].className = dots[i].className.replace(" active", "");
-				}
 				
-				dots[index-1].className += " active";
-			} 
-		</script>
+				<a href="#slide-1"><i class="bi-envelope-fill"></i></a>
+				<a href="#slide-2"><i class="bi-github"></i></a>
+			</div>
+		</div>
 	</div>
 </div>
 

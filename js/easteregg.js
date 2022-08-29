@@ -1,7 +1,7 @@
 function showEgg(egg) {
     // var for compatibility
-    var audio = new Audio("../audio/easteregg.mp3")
-    audio.play()
+    var audio = new Audio("./audio/easteregg.mp3")
+    //audio.play()
     egg.style.display = "block"
     setTimeout(function(){
         egg.classList.add("show")

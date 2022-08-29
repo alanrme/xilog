@@ -10,14 +10,20 @@
     }
 }
 */
-
-.aos { transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.15, 0.8, 0.4, 1); }
+$bezier: cubic-bezier(0.15, 0.8, 0.4, 1);
+.aos { transition-duration: 0.4s; transition-timing-function: $bezier; }
 
 [data-aos="fadein"] {
     opacity: 0;
     transition-property: opacity;
     &.aos-animate {
         opacity: 1;
+        .progress .progress-bar { transform: translateX(0); }
+    }
+    .progress .progress-bar {
+        transform: translateX(-100%);
+        transition-timing-function: $bezier;
+        transition-property: transform;
     }
 }
 
