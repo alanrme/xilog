@@ -1,25 +1,36 @@
 projects = _(".gh-projects");
 var msnry = new Masonry(".gh-projects", { "percentPosition": true });
 
+function createCard(title, text, href, stars=-1) {
+    template = _("#portfolio template")
+    clone = template.content.cloneNode(1).firstElementChild
+    clone.href = href
+
+    title = document.createTextNode(title)
+    clone.querySelector("h3").appendChild(title)
+    text = document.createTextNode(text)
+    clone.querySelector("p2").appendChild(text)
+
+    if (stars == -1) {
+        clone.querySelector("div.stars").remove()
+    } else {
+        stars = document.createTextNode(stars)
+        clone.querySelector("div.stars").appendChild(stars)
+    }
+
+    return clone
+}
+
 fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=stars&order=desc")
 .then((resp) => resp.json())
 .then(function(data) {
     for (var i = 0; i < 6; i++) {
         item = data.items[i]
 
-        projects.innerHTML += `
-        <a href="${item.html_url}" class="col-sm-6" style="color: inherit;">
-            <div class="card aos arrow" data-aos="fadein-up">
-                <h3>${item.name}</h3>
-                <p2>${item.description}</p2>
-                <div class="stars">
-                    <i class="bi-star-fill"></i> ${item.stargazers_count}
-                </div>
-            </div>
-        </a>
-        `
+        card = createCard(item.name, item.description, item.html_url, item.stargazers_count)
+        projects.appendChild(card)
     }
-
+    
     msnry.reloadItems()
     msnry.layout()
     // Array.from() converts the HTMLCollection to an array
@@ -28,12 +39,6 @@ fetch("https://api.github.com/search/repositories?q=user:XilogOfficial&sort=star
 .catch(function(error) {
     console.log(error);
 
-    projects.innerHTML += `
-    <a style="color: inherit;">
-        <div class="card aos" data-aos="fadein-up">
-            <h3>Hmm...</h3>
-            <p2>I can't seem to be able to access GitHub. Something in your network may be blocking it.</p2>
-        </div>
-    </a>
-    `
+    card = createCard("Hmm...", "I can't seem to be able to access GitHub. Something in your network may be blocking it.")
+    projects.appendChild(card)
 });
