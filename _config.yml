@@ -20,7 +20,7 @@
 
 title: Xilog
 url: "https://xilogofficial.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/xilog" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 twitter_username: jekyllrb
 github_username:  jekyll
 host: 0.0.0.0
